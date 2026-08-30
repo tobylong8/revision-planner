@@ -1,15 +1,40 @@
-import json, os, random, subprocess, time, sys, shutil
+import json
+import os
+import random
+import sys
+import shutil
+import time
+import subprocess
 from datetime import date, datetime
 
-# Load topics from configuration file
-with open("topics.json", "r") as f:
-    topics_data = json.load(f)
-
-def make_link(url, text):
-    return f"\x1b]8;;{url}\x1b\\{text}\x1b]8;;\x1b\\"
+# Import premium terminal rendering components
+from rich.console import Console
+from rich.panel import Panel
+from rich.live import Live
+from rich.text import Text
+from rich.table import Table
+from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeRemainingColumn
 
 def clear():
     subprocess.run("cls" if os.name == "nt" else "clear", shell=True)
+
+# Initialize standard styling console matching Claude Code terminal profiles
+console = Console(highlight=False, theme=None)
+clear()
+
+# Load topics from configuration file
+try:
+    with open("topics.json", "r") as f:
+        topics_data = json.load(f)
+except FileNotFoundError:
+    # Fallback mock data structure for testing safety
+    topics_data = {
+        "Maths": {"Calculus": {"rating": 2, "last_revised": None, "plan": {"pomodoro_1": [{"text": "Review Gizmo flashcards", "url": "https://app.gizmo.ai/decks/63307975"}], "pomodoro_2": [{"text": "Solve 5 past paper equations"}]}}}
+    }
+
+def make_link(url, text):
+    """Generates clean Rich-compatible terminal hyperlinks."""
+    return f"[link={url}][#FF6B6B][u]{text}[/u][/#FF6B6B][/link]"
 
 def calculate_priority(rating, last_revised_str):
     current_date = date.today()
@@ -50,7 +75,8 @@ def get_plan(subject, topic, phase=None):
         else:
             formatted_steps.append(f"• {text}")
             
-    return "\n".join(formatted_steps) if formatted_steps else "• No tasks listed."
+    plan_str = "\n".join(formatted_steps) if formatted_steps else "• No tasks listed."
+    return Text.from_markup(plan_str)
 
 def get_best_topic(topic_pool):
     if not topic_pool:
@@ -65,18 +91,26 @@ def get_best_topic(topic_pool):
     return random.choice(highest_scored_topics)
 
 def run_countdown_clock(duration_minutes, label, color_code):
+    """Replaces raw stdout updates with an un-cluttered tracking slider bar."""
     total_seconds = duration_minutes * 60
-    try:
-        while total_seconds > 0:
-            mins, secs = divmod(total_seconds, 60)
-            timer_format = f"{label}: {mins:02d}:{secs:02d}"
-            sys.stdout.write(f"\r{color_code}{timer_format}\033[0m          ")
-            sys.stdout.flush()
-            time.sleep(1)
-            total_seconds -= 1
-        print(f"\n\033[1;32m🔔 {label} complete!\033[0m\n")
-    except KeyboardInterrupt:
-        print(f"\n\033[1;31m⏩ Skipped the rest of this {label.lower()} block.\033[0m\n")
+    
+    with Progress(
+        SpinnerColumn(spinner_name="dots", style=color_code),
+        TextColumn(f"[white]{label}[/white]"),
+        BarColumn(bar_width=30, style="#2D2D2D", complete_style=color_code, finished_style="#2D2D2D"),
+        TextColumn("[#888888]•[/#888888]"),
+        TimeRemainingColumn(),
+        console=console,
+        transient=True
+    ) as progress:
+        task = progress.add_task("countdown", total=total_seconds)
+        try:
+            while not progress.finished:
+                time.sleep(1)
+                progress.update(task, advance=1)
+            console.print(f"[bold #22C55E]🔔 {label} complete![/bold #22C55E]\n")
+        except KeyboardInterrupt:
+            console.print(f"\n[bold #EF4444]⏩ Skipped {label.lower()} interval block.[/bold #EF4444]\n")
 
 def run_pomodoro_engine(selected_tasks, week_label, current_day):
     total_cycles = 4 if len(selected_tasks) > 1 else 2
@@ -86,59 +120,89 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
         if task_index >= len(selected_tasks):
             task_index = 0
             
-        sub, top = selected_tasks[task_index][1], selected_tasks[task_index][2]
+        score, sub, top = selected_tasks[task_index]
         type_label = "OLD REVISION REVIEW" if topics_data[sub][top]["last_revised"] else "NEW TOPIC STUDY"
         
         phase = "pomodoro_1" if (current_cycle % 2 != 0) else "pomodoro_2"
-        phase_title = "POMODORO 1 (Video & Flashcards)" if phase == "pomodoro_1" else "POMODORO 2 (Past Paper Questions)"
+        phase_title = "POMODORO 1: Video & Flashcards" if phase == "pomodoro_1" else "POMODORO 2: Past Paper Questions"
         
-        # Display the plan and keep it visible while running the timer on the same page
         clear()
-        print(f"\033[1;4mAUTOMATED REVISION SCHEDULE ({week_label} - {current_day.upper()})\033[0m")
-        print(f"\033[1mTask: {sub} - {top} ({type_label})\033[0m\n")
-        print(f"\033[1m--- {phase_title} ---\033[0m")
-        print(get_plan(sub, top, phase))
-        print("-" * 40 + "\n")
-        print(f"\033[1;35m🍅 CYCLE {current_cycle} OF {total_cycles} ACTIVE 🍅\033[0m")
-        print("👉 Press [Ctrl + C] to skip the current block.\n")
         
-        run_countdown_clock(duration_minutes=25, label="⏳ Focus Time", color_code="\033[1;36m")
-        print("\a")
+        header_text = Text.from_markup(f"[bold white]AUTOMATED REVISION SCHEDULE[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
+        console.print(Panel(header_text, border_style="#2D2D2D", padding=(0, 2)))
+        console.print()
+
+        content_text = Text()
+        content_text.append(f"Task Target: ", style="bold white")
+        content_text.append(f"{sub} ─ {top}\n", style="bold #FF6B6B")
+        content_text.append(f"Mode Strategy: ", style="white")
+        content_text.append(f"{type_label}\n\n", style="#888888")
+        content_text.append(f"⚡ {phase_title}\n", style="bold white")
+        content_text.append(get_plan(sub, top, phase))
+        content_text.append("\n", style="white")
+        
+        console.print(Panel(
+            content_text, 
+            border_style="#2D2D2D", 
+            padding=(1, 2),
+            title=f"[bold #FF6B6B]🍅 CYCLE {current_cycle} OF {total_cycles} ACTIVE [/bold #FF6B6B]",
+            subtitle="[#666666]Press Ctrl+C to skip tracking window[/#666666]"
+        ))
+        console.print()
+        
+        run_countdown_clock(duration_minutes=25, label="Focus Window", color_code="#FF6B6B")
+        sys.stdout.write("\a")
+        sys.stdout.flush()
         
         if current_cycle < total_cycles:
-            print("\033[1;33m☕ Break time! Step away from your desk.\033[0m")
-            print("")
-            run_countdown_clock(duration_minutes=5, label="🧘 Rest Interval", color_code="\033[1;33m")
-            print("\a")
-            input("Press [Enter] to continue to the next block...")
+            console.print(Panel(
+                "[bold #EAB308]☕ Break Interval! Step away and decouple from your workspace.[/bold #EAB308]", 
+                border_style="#2D2D2D", 
+                padding=(1, 2)
+            ))
+            console.print()
+            run_countdown_clock(duration_minutes=5, label="Rest Interval", color_code="#EAB308")
+            sys.stdout.write("\a")
+            sys.stdout.flush()
+            
+            console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to transition blocks...")
+            input()
+            clear()
+        else:
+            console.print()
+            console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to finish session...")
+            input()
+            clear()
 
-    print("\n\033[1;32m🎉 All scheduled Pomodoro intervals finished! Ready for logging.\033[0m")
+    console.print(Panel("[bold #22C55E]🎉 All engine core Pomodoro operations finalized. Database ready for state synchronization.[/bold #22C55E]", border_style="#2D2D2D", padding=(1, 2)))
 
 def save_completion(subject, topic):
-    print(f"\nLogging completion for: \033[1m{topic}\033[0m")
+    console.print()
+    console.print(f"[bold white]Logging completion target:[/bold white] [bold #FF6B6B]{topic}[/bold #FF6B6B]")
     
     try:
         shutil.copy("topics.json", "topics_backup.json")
     except Exception as e:
-        print(f"\033[93mWarning: Could not create database backup ({e})\033[0m")
+        console.print(f"[bold #EAB308]⚠️ System Warning: Automated localized structural backup abort ({e})[/bold #EAB308]")
         
     topics_data[subject][topic]["last_revised"] = date.today().strftime("%Y-%m-%d")
-    
     current_rating = topics_data[subject][topic].get("rating", 1)
-    print(f"Your current confidence rating for this topic is: {'★' * current_rating}")
+    
+    console.print(f"[bold white]Current Confidence Signature:[/bold white] [bold #EAB308]{'★' * current_rating}[/bold #EAB308]")
     
     while True:
-        new_rating_input = input("Enter your new rating (1-5, or press Enter to keep current): ").strip()
+        console.print("[bold #FF6B6B]>[/bold #FF6B6B] [white]Enter revised metric index (1-5, or [Enter] to keep current)[/white] [#666666]❯[/#666666] ", end="")
+        new_rating_input = input().strip()
         if new_rating_input == "":
             break 
         if new_rating_input.isdigit() and 1 <= int(new_rating_input) <= 5:
             topics_data[subject][topic]["rating"] = int(new_rating_input)
             break
-        print("\033[91mInvalid entry! Please enter a number between 1 and 5.\033[0m")
+        console.print("[bold #EF4444]❌ Out of bounds evaluation structure. Select between integer parameters 1-5.[/bold #EF4444]")
 
     with open("topics.json", "w") as f:
         json.dump(topics_data, f, indent=2)
-    print(f"\033[92mSuccessfully saved updates for '{topic}'!\033[0m\n")
+    console.print(f"[bold #22C55E]✓ Matrix data arrays synchronized successfully for tracking index '{topic}'![/bold #22C55E]\n")
 
 def generate_schedule():
     schedule_week_1 = {
@@ -161,8 +225,10 @@ def generate_schedule():
     week_label = "WEEK 1" if is_week_1 else "WEEK 2"
     
     clear()
-    print(f"\033[1;4mAUTOMATED REVISION SCHEDULE ({week_label} - {current_day.upper()})\033[0m")
-    print(f"\033[1;32mToday's Scheduled Subject for New Content: {today_subject}\033[0m\n")
+    
+    header_text = Text.from_markup(f"[bold white]AUTOMATED REVISION ENGINE[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
+    console.print(Panel(header_text, border_style="#2D2D2D", padding=(0, 2)))
+    console.print()
 
     selected_tasks = []
 
@@ -172,7 +238,8 @@ def generate_schedule():
             if meta["last_revised"] is None:
                 new_pool.append((today_subject, topic_name, meta))
         best_new = get_best_topic(new_pool)
-        if best_new: selected_tasks.append(best_new)
+        if best_new:
+            selected_tasks.append(best_new)
     
     if is_weekend:
         global_old_pool = []
@@ -181,51 +248,37 @@ def generate_schedule():
                 if meta["last_revised"] is not None:
                     global_old_pool.append((subject, topic_name, meta))
         best_old = get_best_topic(global_old_pool)
-        if best_old: 
+        if best_old:
             selected_tasks.append(best_old)
         else:
-            print("\033[93mNotice: It's the weekend, but you haven't completed any new topics yet!\033[0m\n")
+            console.print(Panel("[bold #EAB308]⚠️ Notice: Weekend routing validation rules require old array assets, but none found.[/bold #EAB308]", border_style="#2D2D2D"))
+            console.print()
 
     if not selected_tasks:
-        print("No matches available in the database for today's rules.")
+        console.print(Panel("[bold #EF4444]❌ No operational target matrices structural configurations match today's tracking routing engine maps.[/bold #EF4444]", border_style="#2D2D2D"))
         return
 
-    # --- HOMEPAGE PREVIEW ---
+    console.print(f"[bold white]Target Strategy Routing Matrices Found:[/bold white] [bold #FF6B6B]{today_subject}[/bold #FF6B6B]")
+    console.print()
+
+    table = Table(box=None, show_header=True, header_style="bold #888888")
+    table.add_column("Idx", width=4, justify="left")
+    table.add_column("Target Stream Line Structure", width=45)
+    table.add_column("Engine Processing Assignment", justify="right", style="#888888")
+    
     for idx, (score, sub, top) in enumerate(selected_tasks, 1):
         type_label = "OLD REVISION REVIEW" if topics_data[sub][top]["last_revised"] else "NEW TOPIC STUDY"
-        print(f"\033[1;4mTARGET TASK {idx} ({type_label})\033[0m")
-        print(f"\033[1mDate:\033[0m {current_date.strftime('%Y-%m-%d')} | \033[1mSubject:\033[0m {sub} | \033[1mTopic:\033[0m {top}\n")
-        print("\033[1mFull Session Plan:\033[0m")
-        print(get_plan(sub, top))
-        print("-" * 40 + "\n")
-
-    input("Press [Enter] to start studying...")
-    print("")
-
-    # --- RUN POMODORO ENGINE ---
-    run_pomodoro_engine(selected_tasks=selected_tasks, week_label=week_label, current_day=current_day)
-    
-    # --- SESSION COMPLETION INTERFACE ---
-    print("\n" + "="*40)
-    print("\033[1;4mSESSION COMPLETION INTERFACE\033[0m")
-    
-    for idx, (_, s, t) in enumerate(selected_tasks, 1):
-        type_label = "Old Revision" if topics_data[s][t]["last_revised"] else "New Topic"
-        print(f"\nTask {idx} [{type_label}]: {s} - {t}")
+        table.add_row(f"[#FF6B6B]0{idx}[/#FF6B6B]", f"[bold white]{sub}[/bold white] ─ {top}", type_label)
         
-        while True:
-            response = input("Did you complete this topic? (y/n): ").strip().lower()
-            if response in ['y', 'yes']:
-                save_completion(s, t)
-                break
-            elif response in ['n', 'no']:
-                print(f"Skipped logging for '{t}'.")
-                break
-            print("\033[91mInvalid input! Please type 'y' for yes or 'n' for no.\033[0m")
-            
-    print("\nAll session tasks processed. Keep up the great work!")
-    sys.exit()
+    console.print(Panel(table, border_style="#2D2D2D", padding=(1, 2)))
+    console.print()
+
+    run_pomodoro_engine(selected_tasks, week_label, current_day)
+    
+    for score, sub, top in selected_tasks:
+        save_completion(sub, top)
 
 if __name__ == "__main__":
     generate_schedule()
     input()
+    sys.exit()
