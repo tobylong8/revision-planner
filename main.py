@@ -1,10 +1,4 @@
-import json
-import os
-import random
-import subprocess
-import time
-import sys
-import shutil
+import json, os, random, subprocess, time, sys, shutil
 from datetime import date, datetime
 
 # Load topics from configuration file
