@@ -1,0 +1,242 @@
+{
+  "Biology": {
+    "B1 - Cell Biology": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the cell biology video",
+          "url": "https://drive.google.com/drive/folders/1YAUu1cOAP7_UDoELeQ5Rn99xYPZ0dJnN"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307991"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
+        }
+      ]
+    },
+    "B2 - Organisation": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the organisation video",
+          "url": "https://drive.google.com/drive/folders/1YAUu1cOAP7_UDoELeQ5Rn99xYPZ0dJnN"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307991"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
+        }
+      ]
+    },
+    "B3 - Infection and Response": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the infection and response video",
+          "url": "https://drive.google.com/drive/folders/1YAUu1cOAP7_UDoELeQ5Rn99xYPZ0dJnN"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307991"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
+        }
+      ]
+    },
+    "B4 - Bioenergetics": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the bioenergetics video",
+          "url": "https://drive.google.com/drive/folders/1YAUu1cOAP7_UDoELeQ5Rn99xYPZ0dJnN"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307991"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
+        }
+      ]
+    }
+  },
+  "Chemistry": {
+    "C1 - Atomic Structure and the Periodic Table": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the atomic structure video",
+          "url": "https://drive.google.com/drive/folders/1wJ46hNnfcQq9M1R3WBgmoFIXXZHuGZsc"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307975"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
+        }
+      ]
+    },
+    "C2 - Bonding, Structure, and the Properties of Matter": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the bonding and structure video",
+          "url": "https://drive.google.com/drive/folders/1wJ46hNnfcQq9M1R3WBgmoFIXXZHuGZsc"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307975"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
+        }
+      ]
+    },
+    "C3 - Quantitative Chemistry": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the quantitative chemistry video",
+          "url": "https://drive.google.com/drive/folders/1wJ46hNnfcQq9M1R3WBgmoFIXXZHuGZsc"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307975"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
+        }
+      ]
+    },
+    "C4 - Chemical Changes": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the chemical changes video",
+          "url": "https://drive.google.com/drive/folders/1wJ46hNnfcQq9M1R3WBgmoFIXXZHuGZsc"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307975"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
+        }
+      ]
+    },
+    "C5 - Energy Changes": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the energy changes video",
+          "url": "https://drive.google.com/drive/folders/1wJ46hNnfcQq9M1R3WBgmoFIXXZHuGZsc"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307975"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
+        }
+      ]
+    }
+  },
+  "Physics": {
+    "P1 - Energy": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the energy video",
+          "url": "https://drive.google.com/drive/folders/1ywg_g-UZRTG1jlVnSxFsybHokLDJvG6W"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307962"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/physics-revision/gcse-aqa/"
+        }
+      ]
+    },
+    "P2 - Electricity": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the electricity video",
+          "url": "https://drive.google.com/drive/folders/1ywg_g-UZRTG1jlVnSxFsybHokLDJvG6W"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307962"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/physics-revision/gcse-aqa/"
+        }
+      ]
+    },
+    "P3 - Particle Model of Matter": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the particle model video",
+          "url": "https://drive.google.com/drive/folders/1ywg_g-UZRTG1jlVnSxFsybHokLDJvG6W"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307962"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/physics-revision/gcse-aqa/"
+        }
+      ]
+    },
+    "P4 - Atomic Structure": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": [
+        {
+          "text": "Watch the atomic structure video",
+          "url": "https://drive.google.com/drive/folders/1ywg_g-UZRTG1jlVnSxFsybHokLDJvG6W"
+        },
+        {
+          "text": "Review Gizmo flashcards",
+          "url": "https://app.gizmo.ai/decks/63307962"
+        },
+        {
+          "text": "Complete exam questions",
+          "url": "https://www.physicsandmathstutor.com/physics-revision/gcse-aqa/"
+        }
+      ]
+    }
+  }
+}

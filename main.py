@@ -4,6 +4,7 @@ import random
 import subprocess
 import time
 import sys
+import shutil
 from datetime import date, datetime
 
 # Load topics from configuration file
@@ -31,18 +32,33 @@ def calculate_priority(rating, last_revised_str):
     part2 = (days_elapsed / 180) * (6 - rating)
     return part1 + part2
 
-def get_plan(subject, topic):
-    steps = topics_data[subject][topic]["plan"]
+def get_plan(subject, topic, phase=None):
+    topic_data = topics_data[subject][topic]
+    plan_data = topic_data.get("plan", {})
+    
+    if phase:
+        if isinstance(plan_data, list):
+            steps = plan_data if phase == "pomodoro_1" else []
+        else:
+            steps = plan_data.get(phase, [])
+    else:
+        if isinstance(plan_data, list):
+            steps = plan_data
+        else:
+            steps = plan_data.get("pomodoro_1", []) + plan_data.get("pomodoro_2", [])
+            
     formatted_steps = []
     for item in steps:
-        if item["url"]:
-            formatted_steps.append(f"• {make_link(item['url'], item['text'])}")
+        url = item.get("url")
+        text = item["text"]
+        if url:
+            formatted_steps.append(f"• {make_link(url, text)}")
         else:
-            formatted_steps.append(f"• {item['text']}")
-    return "\n".join(formatted_steps)
+            formatted_steps.append(f"• {text}")
+            
+    return "\n".join(formatted_steps) if formatted_steps else "• No tasks listed."
 
 def get_best_topic(topic_pool):
-    """Calculates scores and handles randomized ties for the highest priority score."""
     if not topic_pool:
         return None
     scored_pool = []
@@ -50,56 +66,85 @@ def get_best_topic(topic_pool):
         score = calculate_priority(meta["rating"], meta["last_revised"])
         scored_pool.append((score, sub, top))
     
-    # 1. Look ONLY at the numeric score value (index 0) to find the maximum
     max_score = max(item[0] for item in scored_pool)
-    
-    # 2. Compare ONLY the score value (item[0]) against the max_score
     highest_scored_topics = [item for item in scored_pool if abs(item[0] - max_score) < 1e-9]
     return random.choice(highest_scored_topics)
 
-def run_countdown_timer(duration_minutes=60):
-    """Displays a ticking countdown clock that can be completed early via Ctrl+C."""
+def run_countdown_clock(duration_minutes, label, color_code):
     total_seconds = duration_minutes * 60
-    print(f"\033[1;33m⏱️  Starting your {duration_minutes}-minute study session now...")
-    print("👉 Press [Ctrl + C] at any time if you finish studying early!\033[0m\n")
-    
     try:
         while total_seconds > 0:
             mins, secs = divmod(total_seconds, 60)
-            timer_format = f"Time Remaining: {mins:02d}:{secs:02d}"
-            sys.stdout.write(f"\r\033[1;36m⏳ {timer_format}\033[0m")
+            timer_format = f"{label}: {mins:02d}:{secs:02d}"
+            sys.stdout.write(f"\r{color_code}{timer_format}\033[0m          ")
             sys.stdout.flush()
             time.sleep(1)
             total_seconds -= 1
-        print("\n\n\033[1;32m🎉 Time's up! Brilliant job finishing your session.\033[0m")
+        print(f"\n\033[1;32m🔔 {label} complete!\033[0m\n")
     except KeyboardInterrupt:
-        print("\n\n\033[1;32m▶️  Timer stopped. Let's record your progress.\033[0m")
+        print(f"\n\033[1;31m⏩ Skipped the rest of this {label.lower()} block.\033[0m\n")
+
+def run_pomodoro_engine(selected_tasks, week_label, current_day):
+    total_cycles = 4 if len(selected_tasks) > 1 else 2
+    
+    for current_cycle in range(1, total_cycles + 1):
+        task_index = 0 if current_cycle <= 2 or len(selected_tasks) == 1 else 1
+        if task_index >= len(selected_tasks):
+            task_index = 0
+            
+        sub, top = selected_tasks[task_index][1], selected_tasks[task_index][2]
+        type_label = "OLD REVISION REVIEW" if topics_data[sub][top]["last_revised"] else "NEW TOPIC STUDY"
+        
+        phase = "pomodoro_1" if (current_cycle % 2 != 0) else "pomodoro_2"
+        phase_title = "POMODORO 1 (Video & Flashcards)" if phase == "pomodoro_1" else "POMODORO 2 (Past Paper Questions)"
+        
+        # Display the plan and keep it visible while running the timer on the same page
+        clear()
+        print(f"\033[1;4mAUTOMATED REVISION SCHEDULE ({week_label} - {current_day.upper()})\033[0m")
+        print(f"\033[1mTask: {sub} - {top} ({type_label})\033[0m\n")
+        print(f"\033[1m--- {phase_title} ---\033[0m")
+        print(get_plan(sub, top, phase))
+        print("-" * 40 + "\n")
+        print(f"\033[1;35m🍅 CYCLE {current_cycle} OF {total_cycles} ACTIVE 🍅\033[0m")
+        print("👉 Press [Ctrl + C] to skip the current block.\n")
+        
+        run_countdown_clock(duration_minutes=25, label="⏳ Focus Time", color_code="\033[1;36m")
+        print("\a")
+        
+        if current_cycle < total_cycles:
+            print("\033[1;33m☕ Break time! Step away from your desk.\033[0m")
+            print("")
+            run_countdown_clock(duration_minutes=5, label="🧘 Rest Interval", color_code="\033[1;33m")
+            print("\a")
+            input("Press [Enter] to continue to the next block...")
+
+    print("\n\033[1;32m🎉 All scheduled Pomodoro intervals finished! Ready for logging.\033[0m")
 
 def save_completion(subject, topic):
-    """Updates revision date and asks the user to adjust their confidence rating."""
     print(f"\nLogging completion for: \033[1m{topic}\033[0m")
     
-    # 1. Update the date timestamp
+    try:
+        shutil.copy("topics.json", "topics_backup.json")
+    except Exception as e:
+        print(f"\033[93mWarning: Could not create database backup ({e})\033[0m")
+        
     topics_data[subject][topic]["last_revised"] = date.today().strftime("%Y-%m-%d")
     
-    # 2. Grab current rating for reference
     current_rating = topics_data[subject][topic].get("rating", 1)
     print(f"Your current confidence rating for this topic is: {'★' * current_rating}")
     
-    # 3. Request a new rating profile input
     while True:
         new_rating_input = input("Enter your new rating (1-5, or press Enter to keep current): ").strip()
         if new_rating_input == "":
-            break # Keep the current rating intact
+            break 
         if new_rating_input.isdigit() and 1 <= int(new_rating_input) <= 5:
             topics_data[subject][topic]["rating"] = int(new_rating_input)
             break
         print("\033[91mInvalid entry! Please enter a number between 1 and 5.\033[0m")
 
-    # 4. Flush changes out to disk space storage
     with open("topics.json", "w") as f:
         json.dump(topics_data, f, indent=2)
-    print(f"\n\033[92mSuccessfully saved! '{topic}' database metrics updated.\033[0m")
+    print(f"\033[92mSuccessfully saved updates for '{topic}'!\033[0m\n")
 
 def generate_schedule():
     schedule_week_1 = {
@@ -115,7 +160,6 @@ def generate_schedule():
     current_day = current_date.strftime("%A")
     is_weekend = current_day in ["Saturday", "Sunday"]
     
-    # Fixed tuple index lookup [1] for extracting calendar week integer cleanly
     week_number = current_date.isocalendar()[1]
     is_week_1 = (week_number % 2 != 0)
     
@@ -128,7 +172,6 @@ def generate_schedule():
 
     selected_tasks = []
 
-    # --- POOL 1: NEW TOPIC FOR TODAY'S SUBJECT ---
     if today_subject in topics_data:
         new_pool = []
         for topic_name, meta in topics_data[today_subject].items():
@@ -137,7 +180,6 @@ def generate_schedule():
         best_new = get_best_topic(new_pool)
         if best_new: selected_tasks.append(best_new)
     
-    # --- POOL 2: OLD TOPIC FROM ANY SUBJECT (WEEKENDS ONLY) ---
     if is_weekend:
         global_old_pool = []
         for subject, sub_dict in topics_data.items():
@@ -145,49 +187,51 @@ def generate_schedule():
                 if meta["last_revised"] is not None:
                     global_old_pool.append((subject, topic_name, meta))
         best_old = get_best_topic(global_old_pool)
-        if best_old: selected_tasks.append(best_old)
+        if best_old: 
+            selected_tasks.append(best_old)
+        else:
+            print("\033[93mNotice: It's the weekend, but you haven't completed any new topics yet!\033[0m\n")
 
     if not selected_tasks:
         print("No matches available in the database for today's rules.")
         return
 
-    # Print out targets instantly
+    # --- HOMEPAGE PREVIEW ---
     for idx, (score, sub, top) in enumerate(selected_tasks, 1):
         type_label = "OLD REVISION REVIEW" if topics_data[sub][top]["last_revised"] else "NEW TOPIC STUDY"
-        print(f"\033[1;4mTARGET TASK {idx} ({type_label}):\033[0m")
-        print(f"\033[1mSubject:\033[0m {sub} | \033[1mTopic:\033[0m {top}\n")
+        print(f"\033[1;4mTARGET TASK {idx} ({type_label})\033[0m")
+        print(f"\033[1mDate:\033[0m {current_date.strftime('%Y-%m-%d')} | \033[1mSubject:\033[0m {sub} | \033[1mTopic:\033[0m {top}\n")
+        print("\033[1mFull Session Plan:\033[0m")
         print(get_plan(sub, top))
         print("-" * 40 + "\n")
 
-    # --- DYNAMIC AUTOMATIC TIMING BLOCK ---
-    # Assign 120 minutes on Saturday/Sunday, otherwise 60 minutes
-    timer_duration = 120 if is_weekend else 60
-    run_countdown_timer(duration_minutes=timer_duration)
+    input("Press [Enter] to start studying...")
+    print("")
+
+    # --- RUN POMODORO ENGINE ---
+    run_pomodoro_engine(selected_tasks=selected_tasks, week_label=week_label, current_day=current_day)
     
-    # --- COMPLETION LOGGING TREE (TRIGGERED AFTER TIMER FINISHES/CANCELLED) ---
+    # --- SESSION COMPLETION INTERFACE ---
     print("\n" + "="*40)
     print("\033[1;4mSESSION COMPLETION INTERFACE\033[0m")
-    print("1. Log a completed topic and update confidence score")
-    print("2. Close program without updating logs")
     
-    action = input("\nChoose an option: ").strip()
-    
-    if action == "1":
-        if len(selected_tasks) == 1:
-            # Weekdays: Instantly logs the single available topic
-            _, s, t = selected_tasks[0]
-            save_completion(s, t)
-        else:
-            # Weekends: Lets you pick which of the two active slots you finished working on
-            print("\nWhich topic did you work on or finish?")
-            for idx, (_, _, top) in enumerate(selected_tasks, 1):
-                print(f"{idx}. {top}")
-            choice = input("Enter number: ").strip()
-            if choice.isdigit() and 1 <= int(choice) <= len(selected_tasks):
-                _, s, t = selected_tasks[int(choice) - 1]
+    for idx, (_, s, t) in enumerate(selected_tasks, 1):
+        type_label = "Old Revision" if topics_data[s][t]["last_revised"] else "New Topic"
+        print(f"\nTask {idx} [{type_label}]: {s} - {t}")
+        
+        while True:
+            response = input("Did you complete this topic? (y/n): ").strip().lower()
+            if response in ['y', 'yes']:
                 save_completion(s, t)
-    else:
-        print("\nExiting. Keep up the hard work next time!")
+                break
+            elif response in ['n', 'no']:
+                print(f"Skipped logging for '{t}'.")
+                break
+            print("\033[91mInvalid input! Please type 'y' for yes or 'n' for no.\033[0m")
+            
+    print("\nAll session tasks processed. Keep up the great work!")
+    sys.exit()
 
 if __name__ == "__main__":
     generate_schedule()
+    input()
