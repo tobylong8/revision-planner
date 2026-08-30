@@ -7,7 +7,7 @@ import time
 import subprocess
 from datetime import date, datetime
 
-# Import premium terminal rendering components
+# Import terminal rendering components
 from rich.console import Console
 from rich.panel import Panel
 from rich.live import Live
@@ -18,7 +18,7 @@ from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeRe
 def clear():
     subprocess.run("cls" if os.name == "nt" else "clear", shell=True)
 
-# Initialize standard styling console matching Claude Code terminal profiles
+# Initialize console matching terminal profiles
 console = Console(highlight=False, theme=None)
 clear()
 
@@ -29,7 +29,7 @@ try:
 except FileNotFoundError:
     # Fallback mock data structure for testing safety
     topics_data = {
-        "Maths": {"Calculus": {"rating": 2, "last_revised": None, "plan": {"pomodoro_1": [{"text": "Review Gizmo flashcards", "url": "https://app.gizmo.ai/decks/63307975"}], "pomodoro_2": [{"text": "Solve 5 past paper equations"}]}}}
+        "Maths": {"Calculus": {"rating": 2, "last_revised": None, "plan": {"pomodoro_1": [{"text": "Review flashcards", "url": "https://app.gizmo.ai/decks/63307975"}], "pomodoro_2": [{"text": "Solve 5 past paper equations"}]}}}
     }
 
 def make_link(url, text):
@@ -91,7 +91,7 @@ def get_best_topic(topic_pool):
     return random.choice(highest_scored_topics)
 
 def run_countdown_clock(duration_minutes, label, color_code):
-    """Replaces raw stdout updates with an un-cluttered tracking slider bar."""
+    """Replaces raw stdout updates with a tracking progress bar."""
     total_seconds = duration_minutes * 60
     
     with Progress(
@@ -110,7 +110,7 @@ def run_countdown_clock(duration_minutes, label, color_code):
                 progress.update(task, advance=1)
             console.print(f"[bold #22C55E]🔔 {label} complete![/bold #22C55E]\n")
         except KeyboardInterrupt:
-            console.print(f"\n[bold #EF4444]⏩ Skipped {label.lower()} interval block.[/bold #EF4444]\n")
+            console.print(f"\n[bold #EF4444]⏩ Skipped {label.lower()} interval.[/bold #EF4444]\n")
 
 def run_pomodoro_engine(selected_tasks, week_label, current_day):
     total_cycles = 4 if len(selected_tasks) > 1 else 2
@@ -121,21 +121,21 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
             task_index = 0
             
         score, sub, top = selected_tasks[task_index]
-        type_label = "OLD REVISION REVIEW" if topics_data[sub][top]["last_revised"] else "NEW TOPIC STUDY"
+        type_label = "REVIEW SESSION" if topics_data[sub][top]["last_revised"] else "NEW TOPIC"
         
         phase = "pomodoro_1" if (current_cycle % 2 != 0) else "pomodoro_2"
-        phase_title = "POMODORO 1: Video & Flashcards" if phase == "pomodoro_1" else "POMODORO 2: Past Paper Questions"
+        phase_title = "POMODORO 1: Video & Flashcards" if phase == "pomodoro_1" else "POMODORO 2: Practice Questions"
         
         clear()
         
-        header_text = Text.from_markup(f"[bold white]AUTOMATED REVISION SCHEDULE[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
+        header_text = Text.from_markup(f"[bold white]STUDY SCHEDULE[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
         console.print(Panel(header_text, border_style="#2D2D2D", padding=(0, 2)))
         console.print()
 
         content_text = Text()
-        content_text.append(f"Task Target: ", style="bold white")
+        content_text.append(f"Current Topic: ", style="bold white")
         content_text.append(f"{sub} ─ {top}\n", style="bold #FF6B6B")
-        content_text.append(f"Mode Strategy: ", style="white")
+        content_text.append(f"Session Type: ", style="white")
         content_text.append(f"{type_label}\n\n", style="#888888")
         content_text.append(f"⚡ {phase_title}\n", style="bold white")
         content_text.append(get_plan(sub, top, phase))
@@ -146,7 +146,7 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
             border_style="#2D2D2D", 
             padding=(1, 2),
             title=f"[bold #FF6B6B]🍅 CYCLE {current_cycle} OF {total_cycles} ACTIVE [/bold #FF6B6B]",
-            subtitle="[#666666]Press Ctrl+C to skip tracking window[/#666666]"
+            subtitle="[#666666]Press Ctrl+C to skip timer[/#666666]"
         ))
         console.print()
         
@@ -156,7 +156,7 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
         
         if current_cycle < total_cycles:
             console.print(Panel(
-                "[bold #EAB308]☕ Break Interval! Step away and decouple from your workspace.[/bold #EAB308]", 
+                "[bold #EAB308]☕ Break Interval! Step away and take a breather.[/bold #EAB308]", 
                 border_style="#2D2D2D", 
                 padding=(1, 2)
             ))
@@ -165,7 +165,7 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
             sys.stdout.write("\a")
             sys.stdout.flush()
             
-            console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to transition blocks...")
+            console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to continue...")
             input()
             clear()
         else:
@@ -174,35 +174,35 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
             input()
             clear()
 
-    console.print(Panel("[bold #22C55E]🎉 All engine core Pomodoro operations finalized. Database ready for state synchronization.[/bold #22C55E]", border_style="#2D2D2D", padding=(1, 2)))
+    console.print(Panel("[bold #22C55E]🎉 Study session completed! Progress saved successfully.[/bold #22C55E]", border_style="#2D2D2D", padding=(1, 2)))
 
 def save_completion(subject, topic):
     console.print()
-    console.print(f"[bold white]Logging completion target:[/bold white] [bold #FF6B6B]{topic}[/bold #FF6B6B]")
+    console.print(f"[bold white]Saving progress for:[/bold white] [bold #FF6B6B]{topic}[/bold #FF6B6B]")
     
     try:
         shutil.copy("topics.json", "topics_backup.json")
     except Exception as e:
-        console.print(f"[bold #EAB308]⚠️ System Warning: Automated localized structural backup abort ({e})[/bold #EAB308]")
+        console.print(f"[bold #EAB308]⚠️ Warning: Could not create backup file ({e})[/bold #EAB308]")
         
     topics_data[subject][topic]["last_revised"] = date.today().strftime("%Y-%m-%d")
     current_rating = topics_data[subject][topic].get("rating", 1)
     
-    console.print(f"[bold white]Current Confidence Signature:[/bold white] [bold #EAB308]{'★' * current_rating}[/bold #EAB308]")
+    console.print(f"[bold white]Confidence Level:[/bold white] [bold #EAB308]{'★' * current_rating}[/bold #EAB308]")
     
     while True:
-        console.print("[bold #FF6B6B]>[/bold #FF6B6B] [white]Enter revised metric index (1-5, or [Enter] to keep current)[/white] [#666666]❯[/#666666] ", end="")
+        console.print("[bold #FF6B6B]>[/bold #FF6B6B] [white]Rate your confidence (1-5, or [Enter] to keep current)[/white] [#666666]❯[/#666666] ", end="")
         new_rating_input = input().strip()
         if new_rating_input == "":
             break 
         if new_rating_input.isdigit() and 1 <= int(new_rating_input) <= 5:
             topics_data[subject][topic]["rating"] = int(new_rating_input)
             break
-        console.print("[bold #EF4444]❌ Out of bounds evaluation structure. Select between integer parameters 1-5.[/bold #EF4444]")
+        console.print("[bold #EF4444]❌ Invalid input. Please enter a number between 1 and 5.[/bold #EF4444]")
 
     with open("topics.json", "w") as f:
         json.dump(topics_data, f, indent=2)
-    console.print(f"[bold #22C55E]✓ Matrix data arrays synchronized successfully for tracking index '{topic}'![/bold #22C55E]\n")
+    console.print(f"[bold #22C55E]✓ Progress updated successfully for '{topic}'![/bold #22C55E]\n")
 
 def generate_schedule():
     schedule_week_1 = {
@@ -226,7 +226,7 @@ def generate_schedule():
     
     clear()
     
-    header_text = Text.from_markup(f"[bold white]AUTOMATED REVISION ENGINE[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
+    header_text = Text.from_markup(f"[bold white]STUDY SESSION MANAGER[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
     console.print(Panel(header_text, border_style="#2D2D2D", padding=(0, 2)))
     console.print()
 
@@ -248,26 +248,32 @@ def generate_schedule():
                 if meta["last_revised"] is not None:
                     global_old_pool.append((subject, topic_name, meta))
         best_old = get_best_topic(global_old_pool)
-        if best_old:
+        if best_old: 
             selected_tasks.append(best_old)
         else:
-            console.print(Panel("[bold #EAB308]⚠️ Notice: Weekend routing validation rules require old array assets, but none found.[/bold #EAB308]", border_style="#2D2D2D"))
-            console.print()
+            all_new_pool = []
+            for subject, sub_dict in topics_data.items():
+                for topic_name, meta in sub_dict.items():
+                    if meta["last_revised"] is None:
+                        all_new_pool.append((subject, topic_name, meta))
+            best_fallback = get_best_topic(all_new_pool)
+            if best_fallback:
+                selected_tasks.append(best_fallback)
 
     if not selected_tasks:
-        console.print(Panel("[bold #EF4444]❌ No operational target matrices structural configurations match today's tracking routing engine maps.[/bold #EF4444]", border_style="#2D2D2D"))
+        console.print(Panel("[bold #EF4444]❌ No topics found for today's schedule.[/bold #EF4444]", border_style="#2D2D2D"))
         return
 
-    console.print(f"[bold white]Target Strategy Routing Matrices Found:[/bold white] [bold #FF6B6B]{today_subject}[/bold #FF6B6B]")
+    console.print(f"[bold white]Today's Subject:[/bold white] [bold #FF6B6B]{today_subject}[/bold #FF6B6B]")
     console.print()
 
     table = Table(box=None, show_header=True, header_style="bold #888888")
     table.add_column("Idx", width=4, justify="left")
-    table.add_column("Target Stream Line Structure", width=45)
-    table.add_column("Engine Processing Assignment", justify="right", style="#888888")
+    table.add_column("Subject & Topic", width=45)
+    table.add_column("Session Type", justify="right", style="#888888")
     
     for idx, (score, sub, top) in enumerate(selected_tasks, 1):
-        type_label = "OLD REVISION REVIEW" if topics_data[sub][top]["last_revised"] else "NEW TOPIC STUDY"
+        type_label = "REVIEW SESSION" if topics_data[sub][top]["last_revised"] else "NEW TOPIC"
         table.add_row(f"[#FF6B6B]0{idx}[/#FF6B6B]", f"[bold white]{sub}[/bold white] ─ {top}", type_label)
         
     console.print(Panel(table, border_style="#2D2D2D", padding=(1, 2)))
