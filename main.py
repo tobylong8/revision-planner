@@ -15,6 +15,7 @@ def clear():
 console = Console(highlight=False, theme=None)
 base_dir = os.path.dirname(os.path.abspath(__file__))
 json_path = os.path.join(base_dir, "topics.json")
+backup_path = os.path.join(base_dir, "topics_backup.json")
 clear()
 
 # Load topics from configuration file
@@ -23,8 +24,8 @@ try:
         topics_data = json.load(f)
 except FileNotFoundError:
     topics_data = {
-        "Maths": {"Calculus": {"rating": 2, "last_revised": None, "plan": ...}}
-    }
+            "Placeholder": {"placeholder": {"rating": 1, "last_revised": None, "plan": "No tasks listed."}}
+        }
 
 def make_link(url, text):
     """Generates clean Rich-compatible terminal hyperlinks."""
@@ -175,7 +176,7 @@ def save_completion(subject, topic):
     console.print(f"[bold white]Saving progress for:[/bold white] [bold #FF6B6B]{topic}[/bold #FF6B6B]")
     
     try:
-        shutil.copy("topics.json", "topics_backup.json")
+        shutil.copy(json_path, backup_path)
     except Exception as e:
         console.print(f"[bold #EAB308]⚠️ Warning: Could not create backup file ({e})[/bold #EAB308]")
         
@@ -194,8 +195,9 @@ def save_completion(subject, topic):
             break
         console.print("[bold #EF4444]❌ Invalid input. Please enter a number between 1 and 5.[/bold #EF4444]")
 
-    with open("topics.json", "w") as f:
+    with open(json_path, "w") as f:
         json.dump(topics_data, f, indent=2)
+        
     console.print(f"[bold #22C55E]✓ Progress updated successfully for '{topic}'![/bold #22C55E]\n")
 
 def generate_schedule():
