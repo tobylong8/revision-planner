@@ -1,16 +1,9 @@
-import json
-import os
-import random
-import sys
-import shutil
-import time
-import subprocess
+import json, os, random, sys, shutil, time, subprocess
 from datetime import date, datetime
 
 # Import terminal rendering components
 from rich.console import Console
 from rich.panel import Panel
-from rich.live import Live
 from rich.text import Text
 from rich.table import Table
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeRemainingColumn
@@ -20,16 +13,17 @@ def clear():
 
 # Initialize console matching terminal profiles
 console = Console(highlight=False, theme=None)
+base_dir = os.path.dirname(os.path.abspath(__file__))
+json_path = os.path.join(base_dir, "topics.json")
 clear()
 
 # Load topics from configuration file
 try:
-    with open("topics.json", "r") as f:
+    with open(json_path, "r") as f:
         topics_data = json.load(f)
 except FileNotFoundError:
-    # Fallback mock data structure for testing safety
     topics_data = {
-        "Maths": {"Calculus": {"rating": 2, "last_revised": None, "plan": {"pomodoro_1": [{"text": "Review flashcards", "url": "https://app.gizmo.ai/decks/63307975"}], "pomodoro_2": [{"text": "Solve 5 past paper equations"}]}}}
+        "Maths": {"Calculus": {"rating": 2, "last_revised": None, "plan": ...}}
     }
 
 def make_link(url, text):
