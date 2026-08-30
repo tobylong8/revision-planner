@@ -1,5 +1,5 @@
 {
-  "Science": {
+  "Biology": {
     "B1 - Cell Biology": {
       "rating": 3,
       "last_revised": "2026-08-20",
@@ -20,7 +20,7 @@
     },
     "B2 - Organisation": {
       "rating": 1,
-      "last_revised": null,
+      "last_revised": "2026-08-30",
       "plan": [
         {
           "text": "Watch the organisation video",
@@ -71,7 +71,9 @@
           "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
         }
       ]
-    },
+    }
+  },
+  "Chemistry": {
     "C1 - Atomic Structure and the Periodic Table": {
       "rating": 1,
       "last_revised": null,
@@ -161,7 +163,9 @@
           "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
         }
       ]
-    },
+    }
+  },
+  "Physics": {
     "P1 - Energy": {
       "rating": 1,
       "last_revised": null,
