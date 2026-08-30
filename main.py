@@ -144,6 +144,7 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
             subtitle="[#666666]Press Ctrl+C to skip timer[/#666666]"
         ))
         console.print()
+        print()
         
         run_countdown_clock(duration_minutes=25, label="Focus Window", color_code="#FF6B6B")
         sys.stdout.write("\a")
@@ -159,6 +160,7 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
             run_countdown_clock(duration_minutes=5, label="Rest Interval", color_code="#EAB308")
             sys.stdout.write("\a")
             sys.stdout.flush()
+            print()
             
             console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to continue...")
             input()

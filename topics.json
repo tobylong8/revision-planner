@@ -92,7 +92,7 @@
   "Chemistry": {
     "C1 - Atomic Structure and the Periodic Table": {
       "rating": 1,
-      "last_revised": "2026-08-30",
+      "last_revised": null,
       "plan": {
         "pomodoro_1": [
           {
@@ -180,7 +180,7 @@
     },
     "C5 - Energy Changes": {
       "rating": 1,
-      "last_revised": "2026-08-30",
+      "last_revised": null,
       "plan": {
         "pomodoro_1": [
           {
