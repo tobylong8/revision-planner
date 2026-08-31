@@ -5,10 +5,9 @@ An automated, data-driven revision planner written in Python that dynamically sc
 ## Features
 
 * **Custom Priority Formula:** Automatically calculates which topic needs your attention most based on days elapsed, rating, and a 6-month exam deadline.
-* **Bi-Weekly Interleaving Timetable:** Alternates between Week 1 and Week 2 grids to prevent subject clustering.
+* **Bi-Weekly Timetable:** Alternates between Week 1 and Week 2 schedules to prevent subject clustering.
 * **Smart Study Rules:** Handles new topic introductions on weekdays and mixes in high-priority review topics across all subjects on weekends.
 * **Interactive Pomodoro Engine:** Built-in focus and break timers with clickable terminal hyperlinks and keyboard shortcut support (`Ctrl + C` to skip).
-* **Crash-Safe Data Handling:** Safely checks for missing keys, empty strings, and `null` values without breaking, and automatically creates a backup file (`topics_backup.json`) before saving changes.
 
 ## File Structure
 
