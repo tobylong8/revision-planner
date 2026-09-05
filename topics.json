@@ -67,7 +67,7 @@
       }
     },
     "B4 - Bioenergetics": {
-      "rating": 1,
+      "rating": 5,
       "last_revised": "2026-09-05",
       "plan": {
         "pomodoro_1": [
@@ -204,7 +204,7 @@
   "Physics": {
     "P1 - Energy": {
       "rating": 5,
-      "last_revised": "2026-09-04",
+      "last_revised": "2026-09-05",
       "plan": {
         "pomodoro_1": [
           {
@@ -226,7 +226,7 @@
     },
     "P2 - Electricity": {
       "rating": 5,
-      "last_revised": "2026-09-04",
+      "last_revised": "2026-09-05",
       "plan": {
         "pomodoro_1": [
           {
@@ -247,8 +247,8 @@
       }
     },
     "P3 - Particle Model of Matter": {
-      "rating": 4,
-      "last_revised": "2026-09-04",
+      "rating": 5,
+      "last_revised": "2026-09-05",
       "plan": {
         "pomodoro_1": [
           {
@@ -269,8 +269,8 @@
       }
     },
     "P4 - Atomic Structure": {
-      "rating": 4,
-      "last_revised": "2026-09-04",
+      "rating": 5,
+      "last_revised": "2026-09-05",
       "plan": {
         "pomodoro_1": [
           {

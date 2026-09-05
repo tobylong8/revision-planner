@@ -11,7 +11,7 @@ from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
 # Define global accent color and audio states
 accent_colour = "#FF6B6B"
 muted = False
-current_volume = 1.0
+current_volume = 0.2
 
 # Realistic averaged percentage thresholds for subject grade boundaries
 SUBJECT_BOUNDARIES = {
@@ -193,17 +193,26 @@ def display_streak_summary(selected_tasks):
     if raw_history is None:
         raw_history = []
         
-    history = set(d for d in raw_history if isinstance(d, str) and d)
+    history = set(str(d).strip() for d in raw_history if d)
     today = date.today()
     history.add(today.strftime("%Y-%m-%d"))
     
+    # Calculate current streak backwards from today
     current_streak = 0
     check_date = today
     while check_date.strftime("%Y-%m-%d") in history:
         current_streak += 1
-        check_date = check_date - timedelta(days=1)
+        check_date -= timedelta(days=1)
         
-    sorted_dates = sorted([datetime.strptime(d, "%Y-%m-%d").date() for d in history])
+    # Calculate longest streak
+    valid_dates = []
+    for d_str in history:
+        try:
+            valid_dates.append(datetime.strptime(d_str, "%Y-%m-%d").date())
+        except ValueError:
+            pass
+            
+    sorted_dates = sorted(list(set(valid_dates)))
     longest_streak = 0
     temp_streak = 0
     prev_date = None
@@ -216,29 +225,33 @@ def display_streak_summary(selected_tasks):
         longest_streak = max(longest_streak, temp_streak)
         prev_date = d
 
-    num_weeks = 16
+    # Render 14-week contribution heatmap (Green for completed, dark grey for everything else)
+    num_weeks = 14
     total_grid_days = num_weeks * 7
-    start_grid_date = today - timedelta(days=total_grid_days - 1)
-    start_grid_date = start_grid_date - timedelta(days=start_grid_date.weekday())
     
-    grid = [[" " for _ in range(num_weeks)] for _ in range(7)]
+    current_sunday = today + timedelta(days=(6 - today.weekday()))
+    start_grid_date = current_sunday - timedelta(days=total_grid_days - 1)
+    
+    grid = [["[#333333]■[/]" for _ in range(num_weeks)] for _ in range(7)]
     curr = start_grid_date
-    day_count = 0
     
-    while curr <= today and (day_count // 7) < num_weeks:
+    for day_count in range(total_grid_days):
         w_idx = day_count // 7
         d_idx = curr.weekday()
-        if curr.strftime("%Y-%m-%d") in history:
-            grid[d_idx][w_idx] = "[#22C55E]■[/]"
+        date_str = curr.strftime("%Y-%m-%d")
+        
+        if curr <= today and date_str in history:
+            grid[d_idx][w_idx] = "[bold #22C55E]■[/bold #22C55E]"  # Completed = Green
         else:
-            grid[d_idx][w_idx] = "[#2D2D2D]■[/]"
+            grid[d_idx][w_idx] = "[#333333]■[/]"  # Everything else = Dark grey squares
+            
         curr += timedelta(days=1)
-        day_count += 1
 
-    days_labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    days_labels = ["Mon", "", "Wed", "", "Fri", "", "Sun"]
     heatmap_lines = []
     for r in range(7):
-        row_str = f"[#888888] {days_labels[r]}[/#888888] " + " ".join(grid[r])
+        label = f"{days_labels[r]:<3}"
+        row_str = f"[#888888] {label} [/#888888] " + "  ".join(grid[r])
         heatmap_lines.append(row_str)
     
     heatmap_str = "\n".join(heatmap_lines)
@@ -250,15 +263,15 @@ def display_streak_summary(selected_tasks):
     summary_markup = (
         f"[bold white]Studied {cards_studied} topic(s) today.[/bold white]\n\n"
         f"{heatmap_str}\n\n"
-        f"[white]Current streak: [/white][bold #22C55E]{current_label}[/bold #22C55E]    "
-        f"[white]Longest streak: [/white][bold #22C55E]{longest_label}[/bold #22C55E]"
+        f"[white]Current Streak:[/white] [bold #22C55E]{current_label}[/bold #22C55E]    "
+        f"[white]Longest Streak:[/white] [bold {accent_colour}]{longest_label}[/bold {accent_colour}]"
     )
     
     console.print(Panel(
         Text.from_markup(summary_markup),
         border_style="#2D2D2D",
         padding=(1, 2),
-        title=f"[bold {accent_colour}]📊 {today.strftime('%Y')} STUDY CONTRIBUTION HEATMAP[/bold {accent_colour}]"
+        title=f"[bold {accent_colour}]📊 {today.strftime('%Y')} ACTIVITY HEATMAP[/bold {accent_colour}]"
     ))
 
 def run_pomodoro_engine(selected_tasks, week_label, current_day):
@@ -342,7 +355,7 @@ def save_completion(subject, topic):
     today_str = date.today().strftime("%Y-%m-%d")
     topics_data[subject][topic]["last_revised"] = today_str
     
-    if "history" not in topics_data or topics_data["history"] is None:
+    if "history" not in topics_data or not isinstance(topics_data["history"], list):
         topics_data["history"] = []
     if today_str not in topics_data["history"]:
         topics_data["history"].append(today_str)
@@ -380,9 +393,18 @@ def save_completion(subject, topic):
 
     topics_data[subject][topic]["rating"] = automated_rating
     
-    console.print(f"\n[bold white]Percentage Score:[/bold white] {percentage:.1f}%")
-    console.print(f"[bold white]Estimated GCSE Grade:[/bold white] [bold {current_color}]Grade {assigned_grade}[/bold {current_color}]")
-    console.print(f"[bold white]Calculated Confidence Index:[/bold white] [bold {current_color}]{'★' * automated_rating}[/bold {current_color}]")
+    console.print()
+    result_text = Text()
+    result_text.append(f"Evaluated Subject: {subject} ─ {topic}\n\n", style="bold white")
+    result_text.append(f"Percentage Score: ", style="white")
+    result_text.append(f"{percentage:.1f}%\n", style=f"bold {accent_colour}")
+    result_text.append(f"Estimated GCSE Grade: ", style="white")
+    result_text.append(f"Grade {assigned_grade}\n", style=f"bold {current_color}")
+    result_text.append(f"Calculated Confidence Index: ", style="white")
+    result_text.append(f"{'★' * automated_rating}", style=f"bold {current_color}")
+
+    console.print(Panel(result_text, border_style="#2D2D2D", padding=(1, 2), title=f"[bold {accent_colour}]📋 EVALUATION RESULTS[/bold {accent_colour}]"))
+    console.print()
 
     with open(json_path, "w") as f:
         json.dump(topics_data, f, indent=2)
@@ -390,6 +412,9 @@ def save_completion(subject, topic):
     console.print(f"[bold #22C55E]✓ Priority weights updated using grade boundary averages.[/bold #22C55E]\n")
     console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to continue...")
     input()
+    
+    clear()
+    print_banner()
 
 def generate_schedule():
     schedule_week_1 = {
@@ -488,7 +513,8 @@ def generate_schedule():
 if __name__ == "__main__":
     play_random_folder_background(r"C:\Projects\revision-planner-main\Music")
     generate_schedule()
-    input()
+    print()
+    console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to exit...")
     try:
         pygame.mixer.music.stop()
         pygame.mixer.quit()
