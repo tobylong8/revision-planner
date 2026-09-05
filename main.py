@@ -1,17 +1,11 @@
-<<<<<<< HEAD
 import json, os, random, sys, shutil, time, subprocess, threading, pygame, msvcrt
 from datetime import date, datetime, timedelta
-=======
-import json, os, random, sys, shutil, time, subprocess
-from datetime import date, datetime
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
 
 # Import terminal rendering components
 from rich.console import Console
 from rich.panel import Panel
 from rich.text import Text
 from rich.table import Table
-<<<<<<< HEAD
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
 
 # Define global accent color and audio states
@@ -26,9 +20,6 @@ SUBJECT_BOUNDARIES = {
     "Physics": {"9": 75, "8": 65, "7": 55, "6": 45, "5": 35, "4": 25},
     "Computer Science": {"9": 80, "8": 70, "7": 60, "6": 50, "5": 40, "4": 30},
 }
-=======
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeRemainingColumn
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
 
 def clear():
     subprocess.run("cls" if os.name == "nt" else "clear", shell=True)
@@ -49,7 +40,6 @@ except FileNotFoundError:
             "Placeholder": {"placeholder": {"rating": 1, "last_revised": None, "plan": "No tasks listed."}}
         }
 
-<<<<<<< HEAD
 def print_banner(target_date=date(2027, 5, 10)):
     """Always displays the GCSEs countdown banner at the top."""
     days_left = (target_date - date.today()).days
@@ -87,11 +77,6 @@ def play_random_folder_background(folder_path):
 def make_link(url, text):
     """Generates clean Rich-compatible terminal hyperlinks."""
     return f"[link={url}][{accent_colour}][u]{text}[/u][/{accent_colour}][/link]"
-=======
-def make_link(url, text):
-    """Generates clean Rich-compatible terminal hyperlinks."""
-    return f"[link={url}][#FF6B6B][u]{text}[/u][/#FF6B6B][/link]"
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
 
 def calculate_priority(rating, last_revised_str):
     current_date = date.today()
@@ -148,7 +133,6 @@ def get_best_topic(topic_pool):
     return random.choice(highest_scored_topics)
 
 def run_countdown_clock(duration_minutes, label, color_code):
-<<<<<<< HEAD
     global muted, current_volume
     total_seconds = duration_minutes * 60
     elapsed = 0
@@ -159,17 +143,11 @@ def run_countdown_clock(duration_minutes, label, color_code):
         m, s = divmod(rem, 60)
         return f"{int(m):02d}:{int(s):02d}"
 
-=======
-    """Replaces raw stdout updates with a tracking progress bar."""
-    total_seconds = duration_minutes * 60
-    
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
     with Progress(
         SpinnerColumn(spinner_name="dots", style=color_code),
         TextColumn(f"[white]{label}[/white]"),
         BarColumn(bar_width=30, style="#2D2D2D", complete_style=color_code, finished_style="#2D2D2D"),
         TextColumn("[#888888]•[/#888888]"),
-<<<<<<< HEAD
         TextColumn("[bold cyan]{task.fields[time_left]}[/bold cyan]"),
         console=console,
         transient=True
@@ -206,22 +184,10 @@ def run_countdown_clock(duration_minutes, label, color_code):
                 else:
                     time.sleep(0.1)
                     
-=======
-        TimeRemainingColumn(),
-        console=console,
-        transient=True
-    ) as progress:
-        task = progress.add_task("countdown", total=total_seconds)
-        try:
-            while not progress.finished:
-                time.sleep(1)
-                progress.update(task, advance=1)
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
             console.print(f"[bold #22C55E]🔔 {label} complete![/bold #22C55E]\n")
         except KeyboardInterrupt:
             console.print(f"\n[bold #EF4444]⏩ Skipped {label.lower()} interval.[/bold #EF4444]\n")
 
-<<<<<<< HEAD
 def display_streak_summary(selected_tasks):
     raw_history = topics_data.get("history", [])
     if raw_history is None:
@@ -295,8 +261,6 @@ def display_streak_summary(selected_tasks):
         title=f"[bold {accent_colour}]📊 {today.strftime('%Y')} STUDY CONTRIBUTION HEATMAP[/bold {accent_colour}]"
     ))
 
-=======
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
 def run_pomodoro_engine(selected_tasks, week_label, current_day):
     total_cycles = 4 if len(selected_tasks) > 1 else 2
     
@@ -312,10 +276,7 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
         phase_title = "POMODORO 1: Video & Flashcards" if phase == "pomodoro_1" else "POMODORO 2: Practice Questions"
         
         clear()
-<<<<<<< HEAD
         print_banner()
-=======
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
         
         header_text = Text.from_markup(f"[bold white]STUDY SCHEDULE[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
         console.print(Panel(header_text, border_style="#2D2D2D", padding=(0, 2)))
@@ -323,11 +284,7 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
 
         content_text = Text()
         content_text.append(f"Current Topic: ", style="bold white")
-<<<<<<< HEAD
         content_text.append(f"{sub} ─ {top}\n", style=f"bold {accent_colour}")
-=======
-        content_text.append(f"{sub} ─ {top}\n", style="bold #FF6B6B")
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
         content_text.append(f"Session Type: ", style="white")
         content_text.append(f"{type_label}\n\n", style="#888888")
         content_text.append(f"⚡ {phase_title}\n", style="bold white")
@@ -338,22 +295,13 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
             content_text, 
             border_style="#2D2D2D", 
             padding=(1, 2),
-<<<<<<< HEAD
             title=f"[bold {accent_colour}]🍅 CYCLE {current_cycle} OF {total_cycles} ACTIVE [/bold {accent_colour}]",
             subtitle="[#666666]Press 'p' pause • 'm' mute • '↑/↓' volume • Ctrl+C skip[/#666666]"
-=======
-            title=f"[bold #FF6B6B]🍅 CYCLE {current_cycle} OF {total_cycles} ACTIVE [/bold #FF6B6B]",
-            subtitle="[#666666]Press Ctrl+C to skip timer[/#666666]"
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
         ))
         console.print()
         print()
         
-<<<<<<< HEAD
         run_countdown_clock(duration_minutes=25, label="Focus Window", color_code=accent_colour)
-=======
-        run_countdown_clock(duration_minutes=25, label="Focus Window", color_code="#FF6B6B")
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
         sys.stdout.write("\a")
         sys.stdout.flush()
         
@@ -378,7 +326,6 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
             input()
             clear()
 
-<<<<<<< HEAD
 def save_completion(subject, topic):
     clear()
     print_banner()
@@ -386,20 +333,12 @@ def save_completion(subject, topic):
     console.print()
     
     console.print(f"[bold white]Evaluating past paper performance for:[/bold white] [bold {accent_colour}]{subject} ─ {topic}[/bold {accent_colour}]")
-=======
-    console.print(Panel("[bold #22C55E]🎉 Study session completed! Progress saved successfully.[/bold #22C55E]", border_style="#2D2D2D", padding=(1, 2)))
-
-def save_completion(subject, topic):
-    console.print()
-    console.print(f"[bold white]Saving progress for:[/bold white] [bold #FF6B6B]{topic}[/bold #FF6B6B]")
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
     
     try:
         shutil.copy(json_path, backup_path)
     except Exception as e:
         console.print(f"[bold #EAB308]⚠️ Warning: Could not create backup file ({e})[/bold #EAB308]")
         
-<<<<<<< HEAD
     today_str = date.today().strftime("%Y-%m-%d")
     topics_data[subject][topic]["last_revised"] = today_str
     
@@ -444,27 +383,10 @@ def save_completion(subject, topic):
     console.print(f"\n[bold white]Percentage Score:[/bold white] {percentage:.1f}%")
     console.print(f"[bold white]Estimated GCSE Grade:[/bold white] [bold {current_color}]Grade {assigned_grade}[/bold {current_color}]")
     console.print(f"[bold white]Calculated Confidence Index:[/bold white] [bold {current_color}]{'★' * automated_rating}[/bold {current_color}]")
-=======
-    topics_data[subject][topic]["last_revised"] = date.today().strftime("%Y-%m-%d")
-    current_rating = topics_data[subject][topic].get("rating", 1)
-    
-    console.print(f"[bold white]Confidence Level:[/bold white] [bold #EAB308]{'★' * current_rating}[/bold #EAB308]")
-    
-    while True:
-        console.print("[bold #FF6B6B]>[/bold #FF6B6B] [white]Rate your confidence (1-5, or [Enter] to keep current)[/white] [#666666]❯[/#666666] ", end="")
-        new_rating_input = input().strip()
-        if new_rating_input == "":
-            break 
-        if new_rating_input.isdigit() and 1 <= int(new_rating_input) <= 5:
-            topics_data[subject][topic]["rating"] = int(new_rating_input)
-            break
-        console.print("[bold #EF4444]❌ Invalid input. Please enter a number between 1 and 5.[/bold #EF4444]")
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
 
     with open(json_path, "w") as f:
         json.dump(topics_data, f, indent=2)
         
-<<<<<<< HEAD
     console.print(f"[bold #22C55E]✓ Priority weights updated using grade boundary averages.[/bold #22C55E]\n")
     console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to continue...")
     input()
@@ -477,18 +399,6 @@ def generate_schedule():
     schedule_week_2 = {
         "Monday": "Chemistry", "Tuesday": "Physics", "Wednesday": "Biology",
         "Thursday": "Chemistry", "Friday": "Physics", "Saturday": "Biology", "Sunday": "Chemistry"
-=======
-    console.print(f"[bold #22C55E]✓ Progress updated successfully for '{topic}'![/bold #22C55E]\n")
-
-def generate_schedule():
-    schedule_week_1 = {
-        "Monday": "Maths", "Tuesday": "Biology", "Wednesday": "Computer Science",
-        "Thursday": "English", "Friday": "Spanish", "Saturday": "Geography", "Sunday": "Chemistry"
-    }
-    schedule_week_2 = {
-        "Monday": "English", "Tuesday": "Spanish", "Wednesday": "Maths",
-        "Thursday": "Physics", "Friday": "Computer Science", "Saturday": "Geography", "Sunday": "Maths"
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
     }
     
     current_date = date.today()
@@ -502,25 +412,15 @@ def generate_schedule():
     week_label = "WEEK 1" if is_week_1 else "WEEK 2"
     
     clear()
-<<<<<<< HEAD
     print_banner()
 
     header_text = Text.from_markup(f"[bold white]STUDY SESSION MANAGER[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
     console.print(Panel(header_text, border_style="#2D2D2D", padding=(0, 2), expand=True))
-=======
-    
-    header_text = Text.from_markup(f"[bold white]STUDY SESSION MANAGER[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
-    console.print(Panel(header_text, border_style="#2D2D2D", padding=(0, 2)))
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
     console.print()
 
     selected_tasks = []
 
-<<<<<<< HEAD
     if today_subject in topics_data and isinstance(topics_data[today_subject], dict):
-=======
-    if today_subject in topics_data:
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
         new_pool = []
         for topic_name, meta in topics_data[today_subject].items():
             if meta["last_revised"] is None:
@@ -532,11 +432,8 @@ def generate_schedule():
     if is_weekend:
         global_old_pool = []
         for subject, sub_dict in topics_data.items():
-<<<<<<< HEAD
             if subject == "history" or not isinstance(sub_dict, dict):
                 continue
-=======
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
             for topic_name, meta in sub_dict.items():
                 if meta["last_revised"] is not None:
                     global_old_pool.append((subject, topic_name, meta))
@@ -546,11 +443,8 @@ def generate_schedule():
         else:
             all_new_pool = []
             for subject, sub_dict in topics_data.items():
-<<<<<<< HEAD
                 if subject == "history" or not isinstance(sub_dict, dict):
                     continue
-=======
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
                 for topic_name, meta in sub_dict.items():
                     if meta["last_revised"] is None:
                         all_new_pool.append((subject, topic_name, meta))
@@ -559,7 +453,6 @@ def generate_schedule():
                 selected_tasks.append(best_fallback)
 
     if not selected_tasks:
-<<<<<<< HEAD
         console.print(Panel("[bold #EF4444]❌ No topics found for today's schedule.[/bold #EF4444]", border_style="#2D2D2D", expand=True))
         return
 
@@ -583,31 +476,11 @@ def generate_schedule():
 
     console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to start study session...")
     input()
-=======
-        console.print(Panel("[bold #EF4444]❌ No topics found for today's schedule.[/bold #EF4444]", border_style="#2D2D2D"))
-        return
-
-    console.print(f"[bold white]Today's Subject:[/bold white] [bold #FF6B6B]{today_subject}[/bold #FF6B6B]")
-    console.print()
-
-    table = Table(box=None, show_header=True, header_style="bold #888888")
-    table.add_column("Idx", width=4, justify="left")
-    table.add_column("Subject & Topic", width=45)
-    table.add_column("Session Type", justify="right", style="#888888")
-    
-    for idx, (score, sub, top) in enumerate(selected_tasks, 1):
-        type_label = "REVIEW SESSION" if topics_data[sub][top]["last_revised"] else "NEW TOPIC"
-        table.add_row(f"[#FF6B6B]0{idx}[/#FF6B6B]", f"[bold white]{sub}[/bold white] ─ {top}", type_label)
-        
-    console.print(Panel(table, border_style="#2D2D2D", padding=(1, 2)))
-    console.print()
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
 
     run_pomodoro_engine(selected_tasks, week_label, current_day)
     
     for score, sub, top in selected_tasks:
         save_completion(sub, top)
-<<<<<<< HEAD
         
     print()
     display_streak_summary(selected_tasks)
@@ -621,10 +494,4 @@ if __name__ == "__main__":
         pygame.mixer.quit()
     except:
         pass
-=======
-
-if __name__ == "__main__":
-    generate_schedule()
-    input()
->>>>>>> 64662e3b11653926934f4140431c06c006a071a9
     sys.exit()
