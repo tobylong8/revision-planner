@@ -1,8 +1,8 @@
 {
   "Biology": {
     "B1 - Cell Biology": {
-      "rating": 1,
-      "last_revised": "2026-09-02",
+      "rating": 5,
+      "last_revised": "2026-09-05",
       "plan": {
         "pomodoro_1": [
           {
@@ -23,8 +23,8 @@
       }
     },
     "B2 - Organisation": {
-      "rating": 1,
-      "last_revised": null,
+      "rating": 5,
+      "last_revised": "2026-09-05",
       "plan": {
         "pomodoro_1": [
           {
@@ -45,8 +45,8 @@
       }
     },
     "B3 - Infection and Response": {
-      "rating": 1,
-      "last_revised": null,
+      "rating": 5,
+      "last_revised": "2026-09-05",
       "plan": {
         "pomodoro_1": [
           {
@@ -247,8 +247,8 @@
       }
     },
     "P3 - Particle Model of Matter": {
-      "rating": 1,
-      "last_revised": null,
+      "rating": 4,
+      "last_revised": "2026-09-04",
       "plan": {
         "pomodoro_1": [
           {
@@ -316,6 +316,7 @@
     null,
     "2026-09-01",
     "2026-09-02",
-    "2026-09-04"
+    "2026-09-04",
+    "2026-09-05"
   ]
 }

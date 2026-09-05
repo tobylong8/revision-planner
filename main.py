@@ -13,11 +13,11 @@ accent_colour = "#FF6B6B"
 muted = False
 current_volume = 1.0
 
-# 5-year averaged percentage thresholds for subject grade boundaries
+# Realistic averaged percentage thresholds for subject grade boundaries
 SUBJECT_BOUNDARIES = {
-    "Biology": {"9": 85, "8": 75, "7": 65, "6": 55, "5": 45, "4": 35},
-    "Chemistry": {"9": 85, "8": 75, "7": 65, "6": 55, "5": 45, "4": 35},
-    "Physics": {"9": 85, "8": 75, "7": 65, "6": 55, "5": 45, "4": 35},
+    "Biology": {"9": 75, "8": 65, "7": 55, "6": 45, "5": 35, "4": 25},
+    "Chemistry": {"9": 75, "8": 65, "7": 55, "6": 45, "5": 35, "4": 25},
+    "Physics": {"9": 75, "8": 65, "7": 55, "6": 45, "5": 35, "4": 25},
     "Computer Science": {"9": 80, "8": 70, "7": 60, "6": 50, "5": 40, "4": 30},
 }
 
@@ -45,7 +45,7 @@ def print_banner(target_date=date(2027, 5, 10)):
     days_left = (target_date - date.today()).days
     banner_grid = Table.grid(expand=True)
     banner_grid.add_column(justify="center")
-    banner_grid.add_row(f"[bold {accent_colour}]⏳ {days_left} days[/bold {accent_colour}] [white]until GCSESs[/white]")
+    banner_grid.add_row(f"[bold {accent_colour}]⏳ {days_left} days[/bold {accent_colour}] [white]until GCSEs[/white]")
     console.print(Panel(banner_grid, border_style="#2D2D2D", padding=(0, 2), expand=True))
     console.print()
 
@@ -348,7 +348,7 @@ def save_completion(subject, topic):
         topics_data["history"].append(today_str)
         
     console.print(f"\n[bold {accent_colour}]📋 PAST PAPER SCORE EVALUATION[/bold {accent_colour}]")
-    console.print("[#888888]Enter your score from the practice questions to map against 5-year grade averages.[/#888888]\n")
+    console.print("[#888888]Enter your score from the practice questions to map against realistic grade averages.[/#888888]\n")
 
     while True:
         try:
@@ -364,17 +364,14 @@ def save_completion(subject, topic):
 
     percentage = (marks_achieved / total_marks) * 100
     
-    # Retrieve subject boundaries or use fallback standard boundaries
-    boundaries = SUBJECT_BOUNDARIES.get(subject, {"9": 85, "8": 75, "7": 65, "6": 55, "5": 45, "4": 35})
+    boundaries = SUBJECT_BOUNDARIES.get(subject, {"9": 75, "8": 65, "7": 55, "6": 45, "5": 35, "4": 25})
     
-    # Determine GCSE grade equivalent
     assigned_grade = "U"
     for grade in ["9", "8", "7", "6", "5", "4"]:
         if percentage >= boundaries[grade]:
             assigned_grade = grade
             break
 
-    # Map GCSE grade to algorithm priority rating (1 to 5)
     grade_to_rating = {"9": 5, "8": 5, "7": 4, "6": 3, "5": 2, "4": 1, "U": 1}
     automated_rating = grade_to_rating.get(assigned_grade, 1)
 
@@ -391,6 +388,8 @@ def save_completion(subject, topic):
         json.dump(topics_data, f, indent=2)
         
     console.print(f"[bold #22C55E]✓ Priority weights updated using grade boundary averages.[/bold #22C55E]\n")
+    console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to continue...")
+    input()
 
 def generate_schedule():
     schedule_week_1 = {
@@ -421,7 +420,7 @@ def generate_schedule():
 
     selected_tasks = []
 
-    if today_subject in topics_data:
+    if today_subject in topics_data and isinstance(topics_data[today_subject], dict):
         new_pool = []
         for topic_name, meta in topics_data[today_subject].items():
             if meta["last_revised"] is None:
@@ -433,6 +432,8 @@ def generate_schedule():
     if is_weekend:
         global_old_pool = []
         for subject, sub_dict in topics_data.items():
+            if subject == "history" or not isinstance(sub_dict, dict):
+                continue
             for topic_name, meta in sub_dict.items():
                 if meta["last_revised"] is not None:
                     global_old_pool.append((subject, topic_name, meta))
@@ -442,6 +443,8 @@ def generate_schedule():
         else:
             all_new_pool = []
             for subject, sub_dict in topics_data.items():
+                if subject == "history" or not isinstance(sub_dict, dict):
+                    continue
                 for topic_name, meta in sub_dict.items():
                     if meta["last_revised"] is None:
                         all_new_pool.append((subject, topic_name, meta))
