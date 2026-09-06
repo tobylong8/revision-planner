@@ -40,7 +40,7 @@ except FileNotFoundError:
             "Placeholder": {"placeholder": {"rating": 1, "last_revised": None, "plan": "No tasks listed."}}
         }
 
-def print_banner(target_date=date(2027, 5, 10)):
+def print_banner(target_date=date(2026, 11, 2)):
     """Always displays the GCSEs countdown banner at the top."""
     days_left = (target_date - date.today()).days
     banner_grid = Table.grid(expand=True)
