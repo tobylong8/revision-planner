@@ -1,4 +1,4 @@
-import json, os, random, sys, shutil, time, subprocess, threading, pygame, msvcrt
+import json, os, random, sys, shutil, time, subprocess, threading, pygame, msvcrt, pyperclip, urllib.parse
 from datetime import date, datetime, timedelta
 
 # Import terminal rendering components
@@ -45,15 +45,18 @@ def print_banner(target_date=date(2026, 11, 2)):
     days_left = (target_date - date.today()).days
     banner_grid = Table.grid(expand=True)
     banner_grid.add_column(justify="center")
-    banner_grid.add_row(f"[bold {accent_colour}]⏳ {days_left} days[/bold {accent_colour}] [white]until GCSEs[/white]")
+    banner_grid.add_row(f"[bold {accent_colour}]⏳ {days_left} days[/bold {accent_colour}] [white]until Mocks[/white]")
     console.print(Panel(banner_grid, border_style="#2D2D2D", padding=(0, 2), expand=True))
     console.print()
 
 def play_random_folder_background(folder_path):
-    """Randomly plays all MP3s from a specified folder in an infinite background loop."""
+    """Continues playing background music if already active; otherwise, starts the random playlist loop."""
     def background_loop():
         try:
             pygame.mixer.init()
+            if pygame.mixer.music.get_busy():
+                return
+                
             songs = [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.lower().endswith('.mp3')]
             if not songs:
                 return
@@ -74,6 +77,19 @@ def play_random_folder_background(folder_path):
     audio_thread = threading.Thread(target=background_loop, daemon=True)
     audio_thread.start()
 
+def play_alarm():
+    """Plays the alarm sound effect concurrently using a mixer channel without stopping background music."""
+    try:
+        alarm_path = r"C:\Projects\revision-planner-main\alarm.mp3"
+        if os.path.exists(alarm_path):
+            alarm_sound = pygame.mixer.Sound(alarm_path)
+            alarm_sound.set_volume(1.0)
+            channel = alarm_sound.play()
+            while channel.get_busy():
+                time.sleep(0.5)
+    except Exception as e:
+        print(f"Alarm playback error: {e}")
+
 def make_link(url, text):
     """Generates clean Rich-compatible terminal hyperlinks."""
     return f"[link={url}][{accent_colour}][u]{text}[/u][/{accent_colour}][/link]"
@@ -93,7 +109,7 @@ def calculate_priority(rating, last_revised_str):
     part2 = (days_elapsed / 180) * (6 - rating)
     return part1 + part2
 
-def get_plan(subject, topic, phase=None):
+def get_plan(subject, topic, phase=None, prompt_text=None):
     topic_data = topics_data[subject][topic]
     plan_data = topic_data.get("plan", {})
     
@@ -112,6 +128,15 @@ def get_plan(subject, topic, phase=None):
     for item in steps:
         url = item.get("url")
         text = item["text"]
+        
+        if phase == "pomodoro_1" and subject in ["Biology", "Chemistry", "Physics"] and "ChatGPT" in text:
+            if prompt_text:
+                encoded_prompt = urllib.parse.quote(prompt_text)
+                chatgpt_url = f"https://chatgpt.com/?model=gpt-4o&temporary-chat=true&prompt={encoded_prompt}"
+                link_text = f"[link={chatgpt_url}][{accent_colour}][u]{text}[/u][/{accent_colour}][/link]"
+                formatted_steps.append(f"• {link_text}")
+                continue
+                
         if url:
             formatted_steps.append(f"• {make_link(url, text)}")
         else:
@@ -159,11 +184,11 @@ def run_countdown_clock(duration_minutes, label, color_code):
                     key = msvcrt.getch()
                     if key in (b'\x00', b'\xe0'):
                         arrow_key = msvcrt.getch()
-                        if arrow_key == b'H':  # Up arrow
+                        if arrow_key == b'H': 
                             current_volume = min(1.0, current_volume + 0.1)
                             muted = False
                             pygame.mixer.music.set_volume(current_volume)
-                        elif arrow_key == b'P':  # Down arrow
+                        elif arrow_key == b'P': 
                             current_volume = max(0.0, current_volume - 0.1)
                             pygame.mixer.music.set_volume(current_volume)
                     else:
@@ -197,14 +222,12 @@ def display_streak_summary(selected_tasks):
     today = date.today()
     history.add(today.strftime("%Y-%m-%d"))
     
-    # Calculate current streak backwards from today
     current_streak = 0
     check_date = today
     while check_date.strftime("%Y-%m-%d") in history:
         current_streak += 1
         check_date -= timedelta(days=1)
         
-    # Calculate longest streak
     valid_dates = []
     for d_str in history:
         try:
@@ -225,7 +248,6 @@ def display_streak_summary(selected_tasks):
         longest_streak = max(longest_streak, temp_streak)
         prev_date = d
 
-    # Render 14-week contribution heatmap (Green for completed, dark grey for everything else)
     num_weeks = 14
     total_grid_days = num_weeks * 7
     
@@ -241,9 +263,9 @@ def display_streak_summary(selected_tasks):
         date_str = curr.strftime("%Y-%m-%d")
         
         if curr <= today and date_str in history:
-            grid[d_idx][w_idx] = "[bold #22C55E]■[/bold #22C55E]"  # Completed = Green
+            grid[d_idx][w_idx] = "[bold #22C55E]■[/bold #22C55E]"
         else:
-            grid[d_idx][w_idx] = "[#333333]■[/]"  # Everything else = Dark grey squares
+            grid[d_idx][w_idx] = "[#333333]■[/]"
             
         curr += timedelta(days=1)
 
@@ -288,6 +310,28 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
         phase = "pomodoro_1" if (current_cycle % 2 != 0) else "pomodoro_2"
         phase_title = "POMODORO 1: Video & Flashcards" if phase == "pomodoro_1" else "POMODORO 2: Practice Questions"
         
+        prompt_text = None
+        if phase == "pomodoro_1" and sub in ["Biology", "Chemistry", "Physics"]:
+            prompt_text = (
+                f"I am studying GCSE {sub} for the AQA Combined Science specification.\n"
+                f"I just watched a lesson on {top}.\n"
+                "Act as an expert GCSE examiner. Generate a strict active-recall summary quiz based ONLY on the core facts and definitions required for this specific topic.\n"
+                "Follow these formatting rules strictly:\n\n"
+                "Provide short-answer questions covering the important subtopics (max 15).\n"
+                "The questions must target the exact technical keywords required to score full marks in an exam.\n"
+                "Do not use vague or open-ended questions.\n"
+                "Do not include content that is not required for AQA Combined Science.\n\n"
+                "After the quiz, I will answer the questions. When I provide my answers, act as an expert GCSE examiner and:\n"
+                "Mark each answer strictly according to AQA-style marking points.\n"
+                "Give me an overall score.\n"
+                "Identify my weakest subtopics based on my mistakes.\n"
+                "Give me a short list of the subtopics I most need to revise.\n"
+                "Do not recommend topics I answered correctly unless my wording was insufficient for full marks.\n"
+                "Focus on precise exam terminology rather than general understanding.\n"
+                "Then give a very summarised study guide explaining my weak subtopics simply"
+            )
+            pyperclip.copy(prompt_text)
+
         clear()
         print_banner()
         
@@ -296,14 +340,17 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
         console.print()
 
         content_text = Text()
-        content_text.append(f"Current Topic: ", style="bold white")
-        content_text.append(f"{sub} ─ {top}\n", style=f"bold {accent_colour}")
+        content_text.append(f"Subject: ", style="bold white")
+        content_text.append(f"{sub}\n", style=f"bold {accent_colour}")
+        content_text.append(f"Topic: ", style="bold white")
+        content_text.append(f"{top}\n", style="white")
         content_text.append(f"Session Type: ", style="white")
         content_text.append(f"{type_label}\n\n", style="#888888")
         content_text.append(f"⚡ {phase_title}\n", style="bold white")
-        content_text.append(get_plan(sub, top, phase))
-        content_text.append("\n", style="white")
         
+        content_text.append(get_plan(sub, top, phase, prompt_text))
+        content_text.append("\n", style="white")
+
         console.print(Panel(
             content_text, 
             border_style="#2D2D2D", 
@@ -314,11 +361,16 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
         console.print()
         print()
         
-        run_countdown_clock(duration_minutes=25, label="Focus Window", color_code=accent_colour)
+        run_countdown_clock(duration_minutes=30, label="Focus Window", color_code=accent_colour)
         sys.stdout.write("\a")
         sys.stdout.flush()
+        play_alarm()
         
         if current_cycle < total_cycles:
+            console.print()
+            console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to start break...")
+            input()
+            
             console.print(Panel(
                 "[bold #EAB308]☕ Break Interval! Step away and take a breather.[/bold #EAB308]", 
                 border_style="#2D2D2D", 
@@ -328,6 +380,7 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
             run_countdown_clock(duration_minutes=5, label="Rest Interval", color_code="#EAB308")
             sys.stdout.write("\a")
             sys.stdout.flush()
+            play_alarm()
             print()
             
             console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to continue...")
@@ -431,7 +484,7 @@ def generate_schedule():
     is_weekend = current_day in ["Saturday", "Sunday"]
     
     week_number = current_date.isocalendar()[1]
-    is_week_1 = (week_number % 2 != 0)
+    is_week_1 = (week_number % 2 == 0)
     
     today_subject = schedule_week_1.get(current_day) if is_week_1 else schedule_week_2.get(current_day)
     week_label = "WEEK 1" if is_week_1 else "WEEK 2"
@@ -439,7 +492,7 @@ def generate_schedule():
     clear()
     print_banner()
 
-    header_text = Text.from_markup(f"[bold white]STUDY SESSION MANAGER[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
+    header_text = Text.from_markup(f"[bold white]STUDY SCHEDULE[/bold white] [#666666]❯[/#666666] [#888888]{week_label} • {current_day.upper()}[/#888888]")
     console.print(Panel(header_text, border_style="#2D2D2D", padding=(0, 2), expand=True))
     console.print()
 
@@ -483,8 +536,10 @@ def generate_schedule():
 
     content_lines = []
     for idx, (score, sub, top) in enumerate(selected_tasks, 1):
+        if idx > 1:
+            content_lines.append("")
         type_label = "REVIEW SESSION" if topics_data[sub][top]["last_revised"] else "NEW TOPIC"
-        content_lines.append(f"[bold white]Current Subject:[/bold white] [bold {accent_colour}]{sub}[/bold {accent_colour}]")
+        content_lines.append(f"[bold white]Subject:[/bold white] [bold {accent_colour}]{sub}[/bold {accent_colour}]")
         content_lines.append(f"[bold white]Topic:[/bold white] {top}")
         content_lines.append(f"[bold white]Session Type:[/bold white] [#888888]{type_label}[/#888888]")
         
@@ -499,6 +554,7 @@ def generate_schedule():
     ))
     console.print()
 
+    print()
     console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to start study session...")
     input()
 
@@ -513,8 +569,9 @@ def generate_schedule():
 if __name__ == "__main__":
     play_random_folder_background(r"C:\Projects\revision-planner-main\Music")
     generate_schedule()
-    print()
+    print("\n")
     console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to exit...")
+    input()
     try:
         pygame.mixer.music.stop()
         pygame.mixer.quit()

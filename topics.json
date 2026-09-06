@@ -2,21 +2,21 @@
   "Biology": {
     "B1 - Cell Biology": {
       "rating": 5,
-      "last_revised": "2026-09-05",
+      "last_revised": "2026-09-06",
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the cell biology video",
-            "url": "https://drive.google.com/drive/folders/1YAUu1cOAP7_UDoELeQ5Rn99xYPZ0dJnN"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307991"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
           }
         ]
@@ -24,21 +24,21 @@
     },
     "B2 - Organisation": {
       "rating": 5,
-      "last_revised": "2026-09-05",
+      "last_revised": "2026-09-06",
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the organisation video",
-            "url": "https://drive.google.com/drive/folders/1YAUu1cOAP7_UDoELeQ5Rn99xYPZ0dJnN"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/11xXHtTF93Eymh3ezXI4NyQfw64w_I4X-/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307991"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
           }
         ]
@@ -46,21 +46,21 @@
     },
     "B3 - Infection and Response": {
       "rating": 5,
-      "last_revised": "2026-09-05",
+      "last_revised": "2026-09-06",
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the infection and response video",
-            "url": "https://drive.google.com/drive/folders/1YAUu1cOAP7_UDoELeQ5Rn99xYPZ0dJnN"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1SBy6N_F5UvTsFj31oFwZ1LSRcutbvuBk/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307991"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
           }
         ]
@@ -68,21 +68,21 @@
     },
     "B4 - Bioenergetics": {
       "rating": 5,
-      "last_revised": "2026-09-05",
+      "last_revised": "2026-09-06",
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the bioenergetics video",
-            "url": "https://drive.google.com/drive/folders/1YAUu1cOAP7_UDoELeQ5Rn99xYPZ0dJnN"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1ZsdRb1so6RPQbX5kU5WaP_xU_dtIGrmP/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307991"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
           }
         ]
@@ -96,17 +96,17 @@
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the atomic structure video",
-            "url": "https://drive.google.com/drive/folders/1wJ46hNnfcQq9M1R3WBgmoFIXXZHuGZsc"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1io1NIovEWlnKr0mG-aeKF5eO0MYiqDex/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307975"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
           }
         ]
@@ -118,17 +118,17 @@
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the bonding and structure video",
-            "url": "https://drive.google.com/drive/folders/1wJ46hNnfcQq9M1R3WBgmoFIXXZHuGZsc"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1MjWH-b5Pd8DBWreqtDuDJdN4UiDY8htC/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307975"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
           }
         ]
@@ -140,17 +140,17 @@
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the quantitative chemistry video",
-            "url": "https://drive.google.com/drive/folders/1wJ46hNnfcQq9M1R3WBgmoFIXXZHuGZsc"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1YDXtoG8vEhAVNRTnmKyxqQBVr9MN81ZV/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307975"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
           }
         ]
@@ -162,17 +162,17 @@
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the chemical changes video",
-            "url": "https://drive.google.com/drive/folders/1wJ46hNnfcQq9M1R3WBgmoFIXXZHuGZsc"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1gxK4EXW12bF6borvVQQYLHrfqWWxw_Bc/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307975"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
           }
         ]
@@ -184,17 +184,17 @@
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the energy changes video",
-            "url": "https://drive.google.com/drive/folders/1wJ46hNnfcQq9M1R3WBgmoFIXXZHuGZsc"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1H-y934gSfwjeudqTxcgjS1MW8WwzJsiP/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307975"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/chemistry-revision/gcse-aqa/"
           }
         ]
@@ -204,21 +204,21 @@
   "Physics": {
     "P1 - Energy": {
       "rating": 5,
-      "last_revised": "2026-09-05",
+      "last_revised": "2026-09-06",
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the energy video",
-            "url": "https://drive.google.com/drive/folders/1ywg_g-UZRTG1jlVnSxFsybHokLDJvG6W"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1cmuCKcA5DqChJZsdKL-vZBR-7fF4L-es/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307962"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/physics-revision/gcse-aqa/"
           }
         ]
@@ -226,21 +226,21 @@
     },
     "P2 - Electricity": {
       "rating": 5,
-      "last_revised": "2026-09-05",
+      "last_revised": "2026-09-06",
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the electricity video",
-            "url": "https://drive.google.com/drive/folders/1ywg_g-UZRTG1jlVnSxFsybHokLDJvG6W"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/17zW0jQwrKsvAIeSHHw8ZTozesd_EnULH/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307962"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/physics-revision/gcse-aqa/"
           }
         ]
@@ -248,21 +248,21 @@
     },
     "P3 - Particle Model of Matter": {
       "rating": 5,
-      "last_revised": "2026-09-05",
+      "last_revised": "2026-09-06",
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the particle model video",
-            "url": "https://drive.google.com/drive/folders/1ywg_g-UZRTG1jlVnSxFsybHokLDJvG6W"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/178wfH7PA4dqw86yDqAl6pFnOIxvscwRc/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307962"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/physics-revision/gcse-aqa/"
           }
         ]
@@ -270,53 +270,27 @@
     },
     "P4 - Atomic Structure": {
       "rating": 5,
-      "last_revised": "2026-09-05",
+      "last_revised": "2026-09-06",
       "plan": {
         "pomodoro_1": [
           {
-            "text": "Watch the atomic structure video",
-            "url": "https://drive.google.com/drive/folders/1ywg_g-UZRTG1jlVnSxFsybHokLDJvG6W"
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1WyjuyFWvLp5UA0SjggSXBR_QmIJu4x4-/view?usp=sharing"
           },
           {
-            "text": "Review Gizmo flashcards",
-            "url": "https://app.gizmo.ai/decks/63307962"
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
           }
         ],
         "pomodoro_2": [
           {
-            "text": "Complete exam questions",
+            "text": "Complete exam questions and note mistakes",
             "url": "https://www.physicsandmathstutor.com/physics-revision/gcse-aqa/"
           }
         ]
       }
     }
   },
-  "English": {
-    "X1 - Placeholder Topic": {
-      "rating": 1,
-      "last_revised": null,
-      "plan": {
-        "pomodoro_1": [
-          {
-            "text": "Placeholder task",
-            "url": "https://example.com"
-          }
-        ],
-        "pomodoro_2": [
-          {
-            "text": "Placeholder task",
-            "url": "https://example.com"
-          }
-        ]
-      }
-    }
-  },
   "history": [
-    null,
-    null,
-    "2026-09-01",
-    "2026-09-02",
-    "2026-09-04",
-    "2026-09-05"
   ]
 }
