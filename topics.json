@@ -1,8 +1,8 @@
 {
   "Biology": {
     "B1 - Cell Biology": {
-      "rating": 5,
-      "last_revised": "2026-09-06",
+      "rating": 1,
+      "last_revised": null,
       "plan": {
         "pomodoro_1": [
           {
@@ -23,8 +23,8 @@
       }
     },
     "B2 - Organisation": {
-      "rating": 5,
-      "last_revised": "2026-09-06",
+      "rating": 1,
+      "last_revised": null,
       "plan": {
         "pomodoro_1": [
           {
@@ -45,8 +45,8 @@
       }
     },
     "B3 - Infection and Response": {
-      "rating": 5,
-      "last_revised": "2026-09-06",
+      "rating": 1,
+      "last_revised": null,
       "plan": {
         "pomodoro_1": [
           {
@@ -67,8 +67,8 @@
       }
     },
     "B4 - Bioenergetics": {
-      "rating": 5,
-      "last_revised": "2026-09-06",
+      "rating": 1,
+      "last_revised": null,
       "plan": {
         "pomodoro_1": [
           {
@@ -203,8 +203,8 @@
   },
   "Physics": {
     "P1 - Energy": {
-      "rating": 5,
-      "last_revised": "2026-09-06",
+      "rating": 1,
+      "last_revised": null,
       "plan": {
         "pomodoro_1": [
           {
@@ -225,8 +225,8 @@
       }
     },
     "P2 - Electricity": {
-      "rating": 5,
-      "last_revised": "2026-09-06",
+      "rating": 1,
+      "last_revised": null,
       "plan": {
         "pomodoro_1": [
           {
@@ -247,8 +247,8 @@
       }
     },
     "P3 - Particle Model of Matter": {
-      "rating": 5,
-      "last_revised": "2026-09-06",
+      "rating": 1,
+      "last_revised": null,
       "plan": {
         "pomodoro_1": [
           {
@@ -269,8 +269,8 @@
       }
     },
     "P4 - Atomic Structure": {
-      "rating": 5,
-      "last_revised": "2026-09-06",
+      "rating": 1,
+      "last_revised": null,
       "plan": {
         "pomodoro_1": [
           {

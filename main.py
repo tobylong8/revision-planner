@@ -8,7 +8,8 @@ from rich.text import Text
 from rich.table import Table
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
 
-# Define global accent color and audio states
+# Define global configuration variables
+update_json = False  # TODO: Set to False to prevent saving updates to topics.json, history, and confidence scores
 accent_colour = "#FF6B6B"
 muted = False
 current_volume = 0.2
@@ -39,6 +40,14 @@ except FileNotFoundError:
     topics_data = {
             "Placeholder": {"placeholder": {"rating": 1, "last_revised": None, "plan": "No tasks listed."}}
         }
+
+def open_in_work_edge(url):
+    """Launches any URL directly in Microsoft Edge Profile 1 via subprocess."""
+    try:
+        edge_path = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+        subprocess.Popen([edge_path, "--profile-directory=Profile 1", url])
+    except Exception:
+        pass
 
 def print_banner(target_date=date(2026, 11, 2)):
     """Always displays the GCSEs countdown banner at the top."""
@@ -90,10 +99,6 @@ def play_alarm():
     except Exception as e:
         print(f"Alarm playback error: {e}")
 
-def make_link(url, text):
-    """Generates clean Rich-compatible terminal hyperlinks."""
-    return f"[link={url}][{accent_colour}][u]{text}[/u][/{accent_colour}][/link]"
-
 def calculate_priority(rating, last_revised_str):
     current_date = date.today()
     if last_revised_str:
@@ -133,12 +138,14 @@ def get_plan(subject, topic, phase=None, prompt_text=None):
             if prompt_text:
                 encoded_prompt = urllib.parse.quote(prompt_text)
                 chatgpt_url = f"https://chatgpt.com/?model=gpt-4o&temporary-chat=true&prompt={encoded_prompt}"
-                link_text = f"[link={chatgpt_url}][{accent_colour}][u]{text}[/u][/{accent_colour}][/link]"
+                open_in_work_edge(chatgpt_url)
+                link_text = f"[{accent_colour}][u]{text} (Opened in Work Edge)[/u][/{accent_colour}]"
                 formatted_steps.append(f"• {link_text}")
                 continue
                 
         if url:
-            formatted_steps.append(f"• {make_link(url, text)}")
+            open_in_work_edge(url)
+            formatted_steps.append(f"• [{accent_colour}][u]{text} (Opened in Work Edge)[/u][/{accent_colour}]")
         else:
             formatted_steps.append(f"• {text}")
             
@@ -155,7 +162,9 @@ def get_best_topic(topic_pool):
     
     max_score = max(item[0] for item in scored_pool)
     highest_scored_topics = [item for item in scored_pool if abs(item[0] - max_score) < 1e-9]
-    return random.choice(highest_scored_topics)
+    highest_scored_topics.sort(key=lambda x: (x[1], x[2]))
+    rng = random.Random(date.today().isoformat())
+    return rng.choice(highest_scored_topics)
 
 def run_countdown_clock(duration_minutes, label, color_code):
     global muted, current_volume
@@ -400,18 +409,21 @@ def save_completion(subject, topic):
     
     console.print(f"[bold white]Evaluating past paper performance for:[/bold white] [bold {accent_colour}]{subject} ─ {topic}[/bold {accent_colour}]")
     
-    try:
-        shutil.copy(json_path, backup_path)
-    except Exception as e:
-        console.print(f"[bold #EAB308]⚠️ Warning: Could not create backup file ({e})[/bold #EAB308]")
-        
+    if update_json:
+        try:
+            shutil.copy(json_path, backup_path)
+        except Exception as e:
+            console.print(f"[bold #EAB308]⚠️ Warning: Could not create backup file ({e})[/bold #EAB308]")
+            
     today_str = date.today().strftime("%Y-%m-%d")
-    topics_data[subject][topic]["last_revised"] = today_str
     
-    if "history" not in topics_data or not isinstance(topics_data["history"], list):
-        topics_data["history"] = []
-    if today_str not in topics_data["history"]:
-        topics_data["history"].append(today_str)
+    if update_json:
+        topics_data[subject][topic]["last_revised"] = today_str
+        
+        if "history" not in topics_data or not isinstance(topics_data["history"], list):
+            topics_data["history"] = []
+        if today_str not in topics_data["history"]:
+            topics_data["history"].append(today_str)
         
     console.print(f"\n[bold {accent_colour}]📋 PAST PAPER SCORE EVALUATION[/bold {accent_colour}]")
     console.print("[#888888]Enter your score from the practice questions to map against realistic grade averages.[/#888888]\n")
@@ -444,7 +456,8 @@ def save_completion(subject, topic):
     rating_colors = {1: "#EF4444", 2: "#F97316", 3: "#EAB308", 4: "#3B82F6", 5: "#22C55E"}
     current_color = rating_colors.get(automated_rating, "white")
 
-    topics_data[subject][topic]["rating"] = automated_rating
+    if update_json:
+        topics_data[subject][topic]["rating"] = automated_rating
     
     console.print()
     result_text = Text()
@@ -455,14 +468,19 @@ def save_completion(subject, topic):
     result_text.append(f"Grade {assigned_grade}\n", style=f"bold {current_color}")
     result_text.append(f"Calculated Confidence Index: ", style="white")
     result_text.append(f"{'★' * automated_rating}", style=f"bold {current_color}")
+    if not update_json:
+        result_text.append(Text.from_markup("\n\n[#EAB308](Simulation Mode: JSON updates disabled)[/#EAB308]"))
 
     console.print(Panel(result_text, border_style="#2D2D2D", padding=(1, 2), title=f"[bold {accent_colour}]📋 EVALUATION RESULTS[/bold {accent_colour}]"))
     console.print()
 
-    with open(json_path, "w") as f:
-        json.dump(topics_data, f, indent=2)
-        
-    console.print(f"[bold #22C55E]✓ Priority weights updated using grade boundary averages.[/bold #22C55E]\n")
+    if update_json:
+        with open(json_path, "w") as f:
+            json.dump(topics_data, f, indent=2)
+        console.print(f"[bold #22C55E]✓ Priority weights updated using grade boundary averages.[/bold #22C55E]\n")
+    else:
+        console.print(f"[bold #EAB308]ℹ️  Simulation mode active: JSON file was not modified.[/bold #EAB308]\n")
+
     console.print("[bold #666666]❯[/bold #666666] Press [bold white][Enter][/bold white] to continue...")
     input()
     
