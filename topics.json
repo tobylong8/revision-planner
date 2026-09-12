@@ -91,8 +91,8 @@
   },
   "Chemistry": {
     "C1 - Atomic Structure and the Periodic Table": {
-      "rating": 1,
-      "last_revised": null,
+      "rating": 5,
+      "last_revised": "2026-09-10",
       "plan": {
         "pomodoro_1": [
           {
@@ -291,6 +291,97 @@
       }
     }
   },
+  "English": {
+    "topic 1": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"
+          },
+          {
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
+          }
+        ],
+        "pomodoro_2": [
+          {
+            "text": "Complete exam questions and note mistakes",
+            "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
+          }
+        ]
+      }
+    },
+    "B2 - Organisation": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/11xXHtTF93Eymh3ezXI4NyQfw64w_I4X-/view?usp=sharing"
+          },
+          {
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
+          }
+        ],
+        "pomodoro_2": [
+          {
+            "text": "Complete exam questions and note mistakes",
+            "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
+          }
+        ]
+      }
+    },
+    "B3 - Infection and Response": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1SBy6N_F5UvTsFj31oFwZ1LSRcutbvuBk/view?usp=sharing"
+          },
+          {
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
+          }
+        ],
+        "pomodoro_2": [
+          {
+            "text": "Complete exam questions and note mistakes",
+            "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
+          }
+        ]
+      }
+    },
+    "B4 - Bioenergetics": {
+      "rating": 1,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {
+            "text": "Watch the topic summary video",
+            "url": "https://drive.google.com/file/d/1ZsdRb1so6RPQbX5kU5WaP_xU_dtIGrmP/view?usp=sharing"
+          },
+          {
+            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
+            "url": "https://chatgpt.com"
+          }
+        ],
+        "pomodoro_2": [
+          {
+            "text": "Complete exam questions and note mistakes",
+            "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
+          }
+        ]
+      }
+    }
+  },
   "history": [
+    "2026-09-10"
   ]
 }

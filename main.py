@@ -10,6 +10,7 @@ from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
 
 # Define global configuration variables
 update_json = False  # TODO: Set to False to prevent saving updates to topics.json, history, and confidence scores
+open_links = True    # Set to True to open links in browser automatically, False to disable
 accent_colour = "#FF6B6B"
 muted = False
 current_volume = 0.2
@@ -43,6 +44,8 @@ except FileNotFoundError:
 
 def open_in_work_edge(url):
     """Launches any URL directly in Microsoft Edge Profile 1 via subprocess."""
+    if not open_links:
+        return
     try:
         edge_path = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
         subprocess.Popen([edge_path, "--profile-directory=Profile 1", url])
@@ -139,13 +142,13 @@ def get_plan(subject, topic, phase=None, prompt_text=None):
                 encoded_prompt = urllib.parse.quote(prompt_text)
                 chatgpt_url = f"https://chatgpt.com/?model=gpt-4o&temporary-chat=true&prompt={encoded_prompt}"
                 open_in_work_edge(chatgpt_url)
-                link_text = f"[{accent_colour}][u]{text} (Opened in Work Edge)[/u][/{accent_colour}]"
+                link_text = f"[{accent_colour}][u]{text}[/u][/{accent_colour}]"
                 formatted_steps.append(f"• {link_text}")
                 continue
                 
         if url:
             open_in_work_edge(url)
-            formatted_steps.append(f"• [{accent_colour}][u]{text} (Opened in Work Edge)[/u][/{accent_colour}]")
+            formatted_steps.append(f"• [{accent_colour}][u]{text}[/u][/{accent_colour}]")
         else:
             formatted_steps.append(f"• {text}")
             
@@ -370,7 +373,14 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
         console.print()
         print()
         
-        run_countdown_clock(duration_minutes=30, label="Focus Window", color_code=accent_colour)
+        if phase == "pomodoro_2" and sub in ["Biology", "Chemistry", "Physics"]:
+            run_countdown_clock(duration_minutes=20, label="PPQ Part 1 (20m)", color_code=accent_colour)
+            play_alarm()
+            print("\n")
+            run_countdown_clock(duration_minutes=10, label="PPQ Part 2 (10m)", color_code=accent_colour)
+        else:
+            run_countdown_clock(duration_minutes=30, label="Focus Window", color_code=accent_colour)
+            
         sys.stdout.write("\a")
         sys.stdout.flush()
         play_alarm()
@@ -499,7 +509,6 @@ def generate_schedule():
     
     current_date = date.today()
     current_day = current_date.strftime("%A")
-    is_weekend = current_day in ["Saturday", "Sunday"]
     
     week_number = current_date.isocalendar()[1]
     is_week_1 = (week_number % 2 == 0)
@@ -524,29 +533,6 @@ def generate_schedule():
         best_new = get_best_topic(new_pool)
         if best_new:
             selected_tasks.append(best_new)
-    
-    if is_weekend:
-        global_old_pool = []
-        for subject, sub_dict in topics_data.items():
-            if subject == "history" or not isinstance(sub_dict, dict):
-                continue
-            for topic_name, meta in sub_dict.items():
-                if meta["last_revised"] is not None:
-                    global_old_pool.append((subject, topic_name, meta))
-        best_old = get_best_topic(global_old_pool)
-        if best_old: 
-            selected_tasks.append(best_old)
-        else:
-            all_new_pool = []
-            for subject, sub_dict in topics_data.items():
-                if subject == "history" or not isinstance(sub_dict, dict):
-                    continue
-                for topic_name, meta in sub_dict.items():
-                    if meta["last_revised"] is None:
-                        all_new_pool.append((subject, topic_name, meta))
-            best_fallback = get_best_topic(all_new_pool)
-            if best_fallback:
-                selected_tasks.append(best_fallback)
 
     if not selected_tasks:
         console.print(Panel("[bold #EF4444]❌ No topics found for today's schedule.[/bold #EF4444]", border_style="#2D2D2D", expand=True))
