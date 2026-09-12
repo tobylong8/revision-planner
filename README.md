@@ -1,24 +1,58 @@
 # Revision Planner 📚
 
-An automated, data-driven revision planner written in Python that dynamically schedules topics based on a custom mathematical urgency formula. It balances forward progress with a global revision backlog, tracking your confidence via ratings and saving timestamps directly back to a local storage file.
+An automated, data-driven terminal revision app built in Python, designed to automate GCSE revision.
+
+It dynamically schedules topics using a mathematical priority formula, integrates active-recall AI prompt generation, tracks practice paper scores against realistic grade boundaries, and maintains study streak heatmaps.
+
+---
 
 ## Features
 
-* **Custom Priority Formula:** Automatically calculates which topic needs your attention most based on days elapsed, rating, and a 6-month exam deadline.
-* **Bi-Weekly Timetable:** Alternates between Week 1 and Week 2 schedules to prevent subject clustering.
-* **Smart Study Rules:** Handles new topic introductions on weekdays and mixes in high-priority review topics across all subjects on weekends.
-* **Interactive Pomodoro Engine:** Built-in focus and break timers with clickable terminal hyperlinks and keyboard shortcut support (`Ctrl + C` to skip).
+- **Dynamic Urgency Algorithm**
+  - Calculates topic priority using confidence ratings and days since last revision.
+  - Automatically determines what should be studied each day.
+
+- **Bi-Weekly Subject Rotation**
+  - Alternates between Week 1 and Week 2 science schedules.
+  - Covers Biology, Chemistry, and Physics on weekdays to reduce subject fatigue.
+
+- **Interactive Pomodoro Engine**
+  - **Pomodoro 1:** Video & Flashcards
+  - **Pomodoro 2:** Past Paper Questions
+  - Built-in focus countdown timers.
+  - Automated audio notifications using `alarm.mp3`.
+  - Keyboard controls during focus sessions:
+    - `P` — Pause / Resume timer
+    - `M` — Mute / Unmute background music
+    - `Up / Down` — Adjust master volume
+    - `Ctrl + C` — Skip the current interval
+
+- **ChatGPT Active-Recall Integration**
+  - Generates custom AQA Combined Science prompts.
+  - Copies prompts directly to the clipboard using `pyperclip`.
+  - Automatically opens targeted prompt URLs in Microsoft Edge.
+
+- **Past Paper Grade Evaluation**
+  - Evaluates practice paper scores against subject grade boundaries.
+  - Supports Biology, Chemistry, Physics, Computer Science, Maths, and English.
+  - Automatically adjusts topic confidence ratings from **1–5 stars**.
+
+- **Terminal Heatmap & Streaks**
+  - Displays a 14-week GitHub-style study activity heatmap.
+  - Tracks both current and longest study streaks.
+
+- **Background Audio Engine**
+  - Randomly plays local MP3 tracks.
+  - Uses Pygame mixer threads to keep music running without interfering with timer alerts.
+
+---
 
 ## File Structure
 
-* `main.py`: The core script containing the scheduling logic, terminal user interface, and Pomodoro timer.
-* `topics.json`: Your local database storing subjects, topics, study steps, last-revised dates, and confidence ratings.
-* `topics_backup.json`: Automatic safety backup created every time you log a completed session.
-
-## Getting Started
-
-1. Ensure you have Python installed.
-2. Place `main.py` and your `topics.json` file in the same directory.
-3. Run the script from your terminal:
-   ```bash
-   python main.py
+```text
+Revision-Planner/
+├── main.py              # Core application logic, scheduler, UI panels & audio threads
+├── topics.json          # Database containing subjects, topics, study steps & rating history
+├── topics_backup.json   # Automatic safety backup generated after completion logs
+├── alarm.mp3            # Alarm sound played at break intervals
+└── Music/               # Folder containing background MP3 tracks
