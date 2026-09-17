@@ -54,5 +54,6 @@ Revision-Planner/
 ├── main.py              # Core application logic, scheduler, UI panels & audio threads
 ├── topics.json          # Database containing subjects, topics, study steps & rating history
 ├── topics_backup.json   # Automatic safety backup generated after completion logs
+└── mistakes.txt         # Text file containing mistakes from revision sessions
 ├── alarm.mp3            # Alarm sound played at break intervals
 └── Music/               # Folder containing background MP3 tracks
