@@ -1,6 +1,15 @@
-C1:
-Relative atomic mass formula
-Group 1 and 7 reactivity reasons
+B2:
+Digestive enzymes and bile
+Enzyme specificity (lock-and-key model)
+Double circulatory system
+Heart structure and blood flow
+Blood vessel adaptations
+Blood components
+Coronary heart disease
+Why sugar causes overweight
+Benign and malignant tumours
+Xylem and phloem
+Stomata and transpiration
 
 B3:
 Definition of pathogen
@@ -11,3 +20,27 @@ Trachea and bronchi
 Three white blood cell functions
 Vaccination
 Herd immunity
+
+C1:
+Relative atomic mass formula
+Group 1 and 7 reactivity reasons
+
+C2:
+Ionic compounds: giant lattice structure and electrical conductivity
+Metallic bonding: definition and electrical conductivity
+Metallic properties: malleability and structure
+Alloys vs metals - the atoms are different sizes so there are no layers to slide
+Simple molecular substances: intermolecular forces and electrical conductivity
+Giant covalent structures: definition and properties
+Graphite vs diamond: structure, bonding and electrical conductivity
+
+C5:
+Exothermic reaction definition
+Endothermic reaction definition
+Energy-level diagram axes
+Energy change (ΔH) on energy-level diagrams
+Activation energy definition
+Activation energy on reaction-profile diagrams
+Energy change equation: products − reactants
+Energy-change practical measurements
+q = mcΔT equation

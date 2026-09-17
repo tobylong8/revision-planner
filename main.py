@@ -9,7 +9,7 @@ from rich.table import Table
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
 
 # Define global configuration variables
-update_json = False  # TODO: Set to False to prevent saving updates to topics.json, history, and confidence scores
+update_json = True  # TODO: Set to False to prevent saving updates to topics.json, history, and confidence scores
 open_links = True    # Set to True to open links in browser automatically, False to disable
 accent_colour = "#FF6B6B"
 muted = False
@@ -329,18 +329,27 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
                 f"I just watched a lesson on {top}.\n"
                 "Act as an expert GCSE examiner. Generate a strict active-recall summary quiz based ONLY on the core facts and definitions required for this specific topic.\n"
                 "Follow these formatting rules strictly:\n\n"
-                "Provide short-answer questions covering the important subtopics (max 15).\n"
+                "Provide 15 short-answer questions covering the important subtopics.\n"
                 "The questions must target the exact technical keywords required to score full marks in an exam.\n"
                 "Do not use vague or open-ended questions.\n"
-                "Do not include content that is not required for AQA Combined Science.\n\n"
+                "Do not include content that is not required for AQA Combined Science Higher.\n\n"
                 "After the quiz, I will answer the questions. When I provide my answers, act as an expert GCSE examiner and:\n"
                 "Mark each answer strictly according to AQA-style marking points.\n"
                 "Give me an overall score.\n"
-                "Identify my weakest subtopics based on my mistakes.\n"
-                "Give me a short list of the subtopics I most need to revise.\n"
+                "Give me all the questions I got wrong and the correct answers.\n"
+                "Give me a short list of the subtopics I most need to revise in the exact of the example.\n"
+                "This is the example: B3:\n"
+                "Definition of pathogen\n"
+                "Bacteria vs viruses - how they cause damage\n"
+                "Measles, HIV, Salmonella, Gonorrhoea, Rose black spot and Malaria\n"
+                "Four non-specific defence systems\n"
+                "Trachea and bronchi\n"
+                "Three white blood cell functions\n"
+                "Vaccination\n"
+                "Herd immunity\n\n"
                 "Do not recommend topics I answered correctly unless my wording was insufficient for full marks.\n"
                 "Focus on precise exam terminology rather than general understanding.\n"
-                "Then give a very summarised study guide explaining my weak subtopics simply"
+                "Then give me a super short study guide containing info on only what I got wrong."
             )
             pyperclip.copy(prompt_text)
 
