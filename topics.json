@@ -1,8 +1,8 @@
 {
   "Biology": {
     "B1 - Cell Biology": {
-      "rating": 1,
-      "last_revised": null,
+      "rating": 5,
+      "last_revised": "2026-09-17",
       "plan": {
         "pomodoro_1": [
           {
@@ -203,8 +203,8 @@
   },
   "Physics": {
     "P1 - Energy": {
-      "rating": 1,
-      "last_revised": null,
+      "rating": 4,
+      "last_revised": "2026-09-16",
       "plan": {
         "pomodoro_1": [
           {
@@ -386,6 +386,8 @@
     "2026-09-12",
     "2026-09-13",
     "2026-09-14",
-    "2026-09-15"
+    "2026-09-15",
+    "2026-09-16",
+    "2026-09-17"
   ]
 }

@@ -113,8 +113,8 @@
       }
     },
     "C2 - Bonding, Structure, and the Properties of Matter": {
-      "rating": 1,
-      "last_revised": null,
+      "rating": 4,
+      "last_revised": "2026-09-15",
       "plan": {
         "pomodoro_1": [
           {
@@ -203,8 +203,8 @@
   },
   "Physics": {
     "P1 - Energy": {
-      "rating": 1,
-      "last_revised": null,
+      "rating": 4,
+      "last_revised": "2026-09-16",
       "plan": {
         "pomodoro_1": [
           {
@@ -385,6 +385,8 @@
     "2026-09-10",
     "2026-09-12",
     "2026-09-13",
-    "2026-09-14"
+    "2026-09-14",
+    "2026-09-15",
+    "2026-09-16"
   ]
 }
