@@ -10,16 +10,22 @@ from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
 
 # Define global configuration variables
 update_json = True  # TODO: Set to False to prevent saving updates to topics.json, history, and confidence scores
-open_links = True    # Set to True to open links in browser automatically, False to disable
+open_links = True    #  TODO: Set to True to open links in browser automatically, False to disable
 accent_colour = "#FF6B6B"
 muted = False
 current_volume = 0.2
 
 # Realistic averaged percentage thresholds for subject grade boundaries
 SUBJECT_BOUNDARIES = {
+    "Maths": {"9": 80, "8": 70, "7": 60, "6": 50, "5": 40, "4": 30},
+    "English Language": {"9": 70, "8": 62, "7": 54, "6": 44, "5": 34, "4": 24},
+    "English Literature": {"9": 72, "8": 64, "7": 56, "6": 46, "5": 36, "4": 26},
     "Biology": {"9": 75, "8": 65, "7": 55, "6": 45, "5": 35, "4": 25},
     "Chemistry": {"9": 75, "8": 65, "7": 55, "6": 45, "5": 35, "4": 25},
     "Physics": {"9": 75, "8": 65, "7": 55, "6": 45, "5": 35, "4": 25},
+    "Geography": {"9": 72, "8": 62, "7": 52, "6": 42, "5": 32, "4": 22},
+    "Business": {"9": 75, "8": 65, "7": 55, "6": 45, "5": 35, "4": 25},
+    "Spanish": {"9": 78, "8": 68, "7": 58, "6": 48, "5": 38, "4": 28},
     "Computer Science": {"9": 80, "8": 70, "7": 60, "6": 50, "5": 40, "4": 30},
 }
 
@@ -507,23 +513,33 @@ def save_completion(subject, topic):
     print_banner()
 
 def generate_schedule():
-    schedule_week_1 = {
-        "Monday": "Biology", "Tuesday": "Chemistry", "Wednesday": "Physics",
-        "Thursday": "Biology", "Friday": "Chemistry", "Saturday": "Physics", "Sunday": "Biology"
-    }
-    schedule_week_2 = {
-        "Monday": "Chemistry", "Tuesday": "Physics", "Wednesday": "Biology",
-        "Thursday": "Chemistry", "Friday": "Physics", "Saturday": "Biology", "Sunday": "Chemistry"
-    }
-    
     current_date = date.today()
     current_day = current_date.strftime("%A")
-    
     week_number = current_date.isocalendar()[1]
     is_week_1 = (week_number % 2 == 0)
+    week_label = "WEEK 1" if is_week_1 else "WEEK 2"
+
+    schedule_week_1 = {
+        "Monday": "Maths",
+        "Tuesday": "Business",
+        "Wednesday": "Biology",
+        "Thursday": "English Language",
+        "Friday": "Spanish",
+        "Saturday": "Physics",
+        "Sunday": "English Lit"
+    }
+
+    schedule_week_2 = {
+        "Monday": "Biology",
+        "Tuesday": "English Language",
+        "Wednesday": "Geography",
+        "Thursday": "Maths",
+        "Friday": "Computing",
+        "Saturday": "Maths",
+        "Sunday": "Chemistry"
+    }
     
     today_subject = schedule_week_1.get(current_day) if is_week_1 else schedule_week_2.get(current_day)
-    week_label = "WEEK 1" if is_week_1 else "WEEK 2"
     
     clear()
     print_banner()

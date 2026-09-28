@@ -1,24 +1,372 @@
 {
+  "Maths": {
+    "Fractions, decimals and percentages": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Ratio": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Standard form": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Drawing and using graphs": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Evaluating indices": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Surface area": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Construction": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Recurring decimals": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Pythagoras": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Trigonometry": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Expand, factorise and solve quadratics": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Algebraic fractions": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Probability": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Venn diagrams": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Proportion (direct and inverse)": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Compound interest": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Rationalising surds": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Coordinate geometry (equation of a line)": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Turning points of quadratic graphs": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Upper and lower bounds": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    }
+  },
+  "English Literature": {
+    "Poetry Anthology (Power and Conflict)": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Review poem annotations and key themes", "url": "https://chatgpt.com"},
+          {"text": "Practice quote memorisation and comparison structures", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Write a 30-minute timed comparative paragraph", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Unseen Poetry": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Learn the SMILE / form and structure breakdown method", "url": "https://chatgpt.com"},
+          {"text": "Analyze an unseen poem sample", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Write practice exam response and check against mark scheme", "url": "https://chatgpt.com"}
+        ]
+      }
+    }
+  },
+  "English Language": {
+    "Question 1 (Information and Ideas)": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Review skill requirements for locating details quickly", "url": "https://chatgpt.com"},
+          {"text": "Complete a 5-minute timed Q1 practice extract", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Mark and review answers against correct source details", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Question 2 (Summary / Synthesis)": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Learn how to infer and synthesize differences/similarities", "url": "https://chatgpt.com"},
+          {"text": "Practice text annotation for two sources", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Write a timed Q2 summary response", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Question 3 (Writer's Methods)": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Review structure techniques and terminology", "url": "https://chatgpt.com"},
+          {"text": "Analyze source text paragraph shifts", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Write a timed Q3 response and check terminology use", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Question 4 (Perspective Comparison)": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Learn how to compare viewpoints and attitudes", "url": "https://chatgpt.com"},
+          {"text": "Plan comparative quotes and methods", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Write a timed Q4 essay response", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Question 5 (Creative Writing)": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Review vocabulary banks, sentence structures, and punctuation variety", "url": "https://chatgpt.com"},
+          {"text": "Plan a narrative or descriptive arc (4-paragraph structure)", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Write a 45-minute timed response and self-edit", "url": "https://chatgpt.com"}
+        ]
+      }
+    }
+  },
   "Biology": {
     "B1 - Cell Biology": {
       "rating": 5,
       "last_revised": "2026-09-17",
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     },
@@ -27,20 +375,11 @@
       "last_revised": "2026-09-14",
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/11xXHtTF93Eymh3ezXI4NyQfw64w_I4X-/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/11xXHtTF93Eymh3ezXI4NyQfw64w_I4X-/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     },
@@ -49,42 +388,24 @@
       "last_revised": "2026-09-12",
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1SBy6N_F5UvTsFj31oFwZ1LSRcutbvuBk/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1SBy6N_F5UvTsFj31oFwZ1LSRcutbvuBk/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     },
     "B4 - Bioenergetics": {
-      "rating": 1,
+      "rating": 0,
       "last_revised": null,
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1ZsdRb1so6RPQbX5kU5WaP_xU_dtIGrmP/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1ZsdRb1so6RPQbX5kU5WaP_xU_dtIGrmP/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     }
@@ -95,86 +416,50 @@
       "last_revised": "2026-09-10",
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1io1NIovEWlnKr0mG-aeKF5eO0MYiqDex/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1io1NIovEWlnKr0mG-aeKF5eO0MYiqDex/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/chemistry-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/chemistry-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     },
-    "C2 - Bonding, Structure, and the Properties of Matter": {
+    "C2 - Bonding, Structure, and Properties": {
       "rating": 4,
       "last_revised": "2026-09-15",
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1MjWH-b5Pd8DBWreqtDuDJdN4UiDY8htC/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1MjWH-b5Pd8DBWreqtDuDJdN4UiDY8htC/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/chemistry-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/chemistry-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     },
     "C3 - Quantitative Chemistry": {
-      "rating": 1,
+      "rating": 0,
       "last_revised": null,
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1YDXtoG8vEhAVNRTnmKyxqQBVr9MN81ZV/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1YDXtoG8vEhAVNRTnmKyxqQBVr9MN81ZV/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/chemistry-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/chemistry-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     },
     "C4 - Chemical Changes": {
-      "rating": 1,
+      "rating": 0,
       "last_revised": null,
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1gxK4EXW12bF6borvVQQYLHrfqWWxw_Bc/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1gxK4EXW12bF6borvVQQYLHrfqWWxw_Bc/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/chemistry-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/chemistry-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     },
@@ -183,20 +468,11 @@
       "last_revised": "2026-09-13",
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1H-y934gSfwjeudqTxcgjS1MW8WwzJsiP/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1H-y934gSfwjeudqTxcgjS1MW8WwzJsiP/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/chemistry-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/chemistry-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     }
@@ -207,176 +483,266 @@
       "last_revised": "2026-09-16",
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1cmuCKcA5DqChJZsdKL-vZBR-7fF4L-es/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1cmuCKcA5DqChJZsdKL-vZBR-7fF4L-es/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/physics-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/physics-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     },
     "P2 - Electricity": {
-      "rating": 1,
+      "rating": 0,
       "last_revised": null,
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/17zW0jQwrKsvAIeSHHw8ZTozesd_EnULH/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/17zW0jQwrKsvAIeSHHw8ZTozesd_EnULH/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/physics-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/physics-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     },
     "P3 - Particle Model of Matter": {
-      "rating": 1,
+      "rating": 0,
       "last_revised": null,
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/178wfH7PA4dqw86yDqAl6pFnOIxvscwRc/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/178wfH7PA4dqw86yDqAl6pFnOIxvscwRc/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/physics-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/physics-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     },
     "P4 - Atomic Structure": {
-      "rating": 1,
+      "rating": 0,
       "last_revised": null,
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1WyjuyFWvLp5UA0SjggSXBR_QmIJu4x4-/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1WyjuyFWvLp5UA0SjggSXBR_QmIJu4x4-/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://cognito.org/courses/gcse/physics-combined/aqa/higher/past-papers/by-topic"
-          }
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/physics-combined/aqa/higher/past-papers/by-topic"}
         ]
       }
     }
   },
-  "English": {
-    "topic 1": {
-      "rating": 1,
+  "Geography": {
+    "Physical Landscapes (Coasts and Rivers)": {
+      "rating": 0,
       "last_revised": null,
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Review key landform formation processes and diagrams", "url": "https://chatgpt.com"},
+          {"text": "Complete active recall quiz on transport and deposition", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
-          }
+          {"text": "Practice 6-mark case study and process questions", "url": "https://chatgpt.com"}
         ]
       }
     },
-    "B2 - Organisation": {
-      "rating": 1,
+    "Urban Issues and Challenges (Rio and Bristol)": {
+      "rating": 0,
       "last_revised": null,
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/11xXHtTF93Eymh3ezXI4NyQfw64w_I4X-/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Review urban social, economic, and environmental challenges/opportunities", "url": "https://chatgpt.com"},
+          {"text": "Memorize case study statistics for Rio and Bristol", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
-          }
+          {"text": "Answer structured exam questions evaluating urban regeneration", "url": "https://chatgpt.com"}
         ]
       }
     },
-    "B3 - Infection and Response": {
-      "rating": 1,
+    "Changing Economic World (Nigeria and UK)": {
+      "rating": 0,
       "last_revised": null,
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1SBy6N_F5UvTsFj31oFwZ1LSRcutbvuBk/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Review development indicators and shifting global power", "url": "https://chatgpt.com"},
+          {"text": "Analyze Nigeria's industrial structure and UK's post-industrial economy", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
-          }
+          {"text": "Complete past paper practice questions with focus on evaluation", "url": "https://chatgpt.com"}
+        ]
+      }
+    }
+  },
+  "Spanish": {
+    "My personal world": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Revise family, relationships, and free-time vocabulary", "url": "https://chatgpt.com"},
+          {"text": "Practice complex structures across past, present, and future tenses", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Write a 90-word or translation practice piece", "url": "https://chatgpt.com"}
         ]
       }
     },
-    "B4 - Bioenergetics": {
-      "rating": 1,
+    "Lifestyle and wellbeing": {
+      "rating": 0,
       "last_revised": null,
       "plan": {
         "pomodoro_1": [
-          {
-            "text": "Watch the topic summary video",
-            "url": "https://drive.google.com/file/d/1ZsdRb1so6RPQbX5kU5WaP_xU_dtIGrmP/view?usp=sharing"
-          },
-          {
-            "text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes",
-            "url": "https://chatgpt.com"
-          }
+          {"text": "Learn health, diet, and daily routine vocabulary", "url": "https://chatgpt.com"},
+          {"text": "Revise modal verbs and opinions justification", "url": "https://chatgpt.com"}
         ],
         "pomodoro_2": [
-          {
-            "text": "Complete exam questions and note mistakes",
-            "url": "https://www.physicsandmathstutor.com/biology-revision/gcse-aqa/"
-          }
+          {"text": "Practice reading comprehension and translation tasks", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Media and technology": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Revise social media, internet usage, and cinema/music vocab", "url": "https://chatgpt.com"},
+          {"text": "Practice opinions with conditional and subjunctive moods", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete listening or reading practice questions", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Studying and my future": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Learn school subjects, facilities, and future career terms", "url": "https://chatgpt.com"},
+          {"text": "Practice school rules and uniform expressions", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Write a short paragraph describing ideal future jobs", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Travel and tourism": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Revise holiday destinations, weather, and transport vocabulary", "url": "https://chatgpt.com"},
+          {"text": "Practice preterite and imperfect tense combinations for past holidays", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete past paper translation and gap-fill exercises", "url": "https://chatgpt.com"}
+        ]
+      }
+    }
+  },
+  "Computer Science": {
+    "Algorithms": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Review sorting and searching algorithms (merge, bubble, binary, linear)", "url": "https://chatgpt.com"},
+          {"text": "Practice trace tables and flowchart interpretation", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete Paper 2 algorithm design exam questions", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Programming Fundamentals": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Review data types, variables, constants, and operators", "url": "https://chatgpt.com"},
+          {"text": "Practice string manipulation and subprograms (functions/procedures)", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Solve pseudocode and code tracing tasks", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Producing Robust Programs": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Learn defensive design principles, validation, and authentication", "url": "https://chatgpt.com"},
+          {"text": "Review testing types (syntax, logic, iterative, terminal)", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Practice writing robust code error-handling exercises", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Boolean Logic": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Review logic gates (AND, OR, NOT) and truth tables", "url": "https://chatgpt.com"},
+          {"text": "Practice combining gates into logic circuits and expressions", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions on simplifying boolean statements", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Programming Languages and IDEs": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Distinguish between high-level and low-level languages", "url": "https://chatgpt.com"},
+          {"text": "Review translators (assemblers, compilers, interpreters) and IDE tools", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete past paper theory questions on translators", "url": "https://chatgpt.com"}
+        ]
+      }
+    }
+  },
+  "Business Studies": {
+    "Business Activity": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Review enterprise, entrepreneurs, aims, and objectives", "url": "https://chatgpt.com"},
+          {"text": "Study business ownership types (sole trader, partnership, LTD, PLC)", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete case study analysis questions on business growth", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Operations": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Learn production methods (job, batch, flow) and quality assurance", "url": "https://chatgpt.com"},
+          {"text": "Review supply chain management and stock control graphs", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Practice calculation and evaluation exam questions", "url": "https://chatgpt.com"}
+        ]
+      }
+    },
+    "Marketing": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Revise market research (primary vs secondary) and segmentation", "url": "https://chatgpt.com"},
+          {"text": "Study the marketing mix (Product, Price, Place, Promotion)", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Write a 9-mark marketing strategy evaluation answer", "url": "https://chatgpt.com"}
         ]
       }
     }
@@ -388,6 +754,7 @@
     "2026-09-14",
     "2026-09-15",
     "2026-09-16",
-    "2026-09-17"
+    "2026-09-17",
+    "2026-09-18"
   ]
 }

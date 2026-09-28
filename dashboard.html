@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📈 GCSE Revision Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0b0f19; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
+        .terminal-panel { background-color: #0f172a; border: 1px solid #2d2d2d; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }
+        .accent-text { color: #FF6B6B; }
+    </style>
+</head>
+<body class="p-6 md:p-10 max-w-6xl mx-auto space-y-6">
+    
+    <!-- Top Banner -->
+    <div class="terminal-panel p-6 text-center">
+        <h1 class="text-2xl font-bold tracking-tight text-white">GCSE Analytics Dashboard</h1>
+        <p class="text-xs font-mono uppercase tracking-wider text-slate-400 mt-1">Performance & Revision Tracker</p>
+    </div>
+
+    <!-- Quick Stats Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="terminal-panel p-5">
+            <span class="text-xs font-mono text-slate-400 uppercase">Days until Mocks</span>
+            <p class="text-3xl font-bold mt-2 text-red-400">35</p>
+        </div>
+        <div class="terminal-panel p-5">
+            <span class="text-xs font-mono text-slate-400 uppercase">GCSE Mastery</span>
+            <p class="text-3xl font-bold mt-2 text-emerald-400">11.1%</p>
+        </div>
+        <div class="terminal-panel p-5">
+            <span class="text-xs font-mono text-slate-400 uppercase">Topics Revised</span>
+            <p class="text-3xl font-bold mt-2 text-emerald-400">7/56</p>
+        </div>
+        <div class="terminal-panel p-5">
+            <span class="text-xs font-mono text-slate-400 uppercase">Mastered Topics</span>
+            <p class="text-3xl font-bold mt-2 text-blue-400">4/56</p>
+        </div>
+    </div>
+
+    <!-- Subject Breakdowns Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="terminal-panel p-6 flex flex-col justify-between md:col-span-2">
+            <div>
+                <div class="mb-4 pb-3 border-b border-slate-800">
+                    <h3 class="text-lg font-bold accent-text">Maths - 0.0% mastered</h3>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Fractions, decimals and percentages</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Ratio</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Standard form</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Drawing and using graphs</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Evaluating indices</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Surface area</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Construction</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Recurring decimals</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Pythagoras</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Trigonometry</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Expand, factorise and solve quadratics</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Algebraic fractions</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Probability</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Venn diagrams</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Proportion (direct and inverse)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Compound interest</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Rationalising surds</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Coordinate geometry (equation of a line)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Turning points of quadratic graphs</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Upper and lower bounds</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-panel p-6 flex flex-col justify-between ">
+            <div>
+                <div class="mb-4 pb-3 border-b border-slate-800">
+                    <h3 class="text-lg font-bold accent-text">English Literature - 0.0% mastered</h3>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Poetry Anthology (Power and Conflict)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Unseen Poetry</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-panel p-6 flex flex-col justify-between ">
+            <div>
+                <div class="mb-4 pb-3 border-b border-slate-800">
+                    <h3 class="text-lg font-bold accent-text">English Language - 0.0% mastered</h3>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Question 1 (Information and Ideas)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Question 2 (Summary / Synthesis)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Question 3 (Writer's Methods)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Question 4 (Perspective Comparison)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Question 5 (Creative Writing)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-panel p-6 flex flex-col justify-between ">
+            <div>
+                <div class="mb-4 pb-3 border-b border-slate-800">
+                    <h3 class="text-lg font-bold accent-text">Biology - 75.0% mastered</h3>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">B1 - Cell Biology</span>
+                            <span class="text-xs text-slate-500 font-mono">Last revised: 11 days ago</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-blue-500/15 text-blue-400 border-blue-500/40 whitespace-nowrap">
+                                ★★★★★ Grade 9
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">B2 - Organisation</span>
+                            <span class="text-xs text-slate-500 font-mono">Last revised: 14 days ago</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-blue-500/15 text-blue-400 border-blue-500/40 whitespace-nowrap">
+                                ★★★★★ Grade 9
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">B3 - Infection and Response</span>
+                            <span class="text-xs text-slate-500 font-mono">Last revised: 16 days ago</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-blue-500/15 text-blue-400 border-blue-500/40 whitespace-nowrap">
+                                ★★★★★ Grade 9
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">B4 - Bioenergetics</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-panel p-6 flex flex-col justify-between ">
+            <div>
+                <div class="mb-4 pb-3 border-b border-slate-800">
+                    <h3 class="text-lg font-bold accent-text">Chemistry - 48.0% mastered</h3>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">C1 - Atomic Structure and the Periodic Table</span>
+                            <span class="text-xs text-slate-500 font-mono">Last revised: 18 days ago</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-blue-500/15 text-blue-400 border-blue-500/40 whitespace-nowrap">
+                                ★★★★★ Grade 9
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">C2 - Bonding, Structure, and Properties</span>
+                            <span class="text-xs text-slate-500 font-mono">Last revised: 13 days ago</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-emerald-500/10 text-emerald-400 border-emerald-500/30 whitespace-nowrap">
+                                ★★★★☆ Grade 7-8
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">C3 - Quantitative Chemistry</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">C4 - Chemical Changes</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">C5 - Energy Changes</span>
+                            <span class="text-xs text-slate-500 font-mono">Last revised: 15 days ago</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-yellow-500/10 text-yellow-400 border-yellow-500/30 whitespace-nowrap">
+                                ★★★☆☆ Grade 6
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-panel p-6 flex flex-col justify-between ">
+            <div>
+                <div class="mb-4 pb-3 border-b border-slate-800">
+                    <h3 class="text-lg font-bold accent-text">Physics - 20.0% mastered</h3>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">P1 - Energy</span>
+                            <span class="text-xs text-slate-500 font-mono">Last revised: 12 days ago</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-emerald-500/10 text-emerald-400 border-emerald-500/30 whitespace-nowrap">
+                                ★★★★☆ Grade 7-8
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">P2 - Electricity</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">P3 - Particle Model of Matter</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">P4 - Atomic Structure</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-panel p-6 flex flex-col justify-between ">
+            <div>
+                <div class="mb-4 pb-3 border-b border-slate-800">
+                    <h3 class="text-lg font-bold accent-text">Geography - 0.0% mastered</h3>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Physical Landscapes (Coasts and Rivers)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Urban Issues and Challenges (Rio and Bristol)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Changing Economic World (Nigeria and UK)</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-panel p-6 flex flex-col justify-between ">
+            <div>
+                <div class="mb-4 pb-3 border-b border-slate-800">
+                    <h3 class="text-lg font-bold accent-text">Spanish - 0.0% mastered</h3>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">My personal world</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Lifestyle and wellbeing</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Media and technology</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Studying and my future</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Travel and tourism</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-panel p-6 flex flex-col justify-between ">
+            <div>
+                <div class="mb-4 pb-3 border-b border-slate-800">
+                    <h3 class="text-lg font-bold accent-text">Computer Science - 0.0% mastered</h3>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Algorithms</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Programming Fundamentals</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Producing Robust Programs</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Boolean Logic</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Programming Languages and IDEs</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-panel p-6 flex flex-col justify-between ">
+            <div>
+                <div class="mb-4 pb-3 border-b border-slate-800">
+                    <h3 class="text-lg font-bold accent-text">Business Studies - 0.0% mastered</h3>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Business Activity</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Operations</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/50 p-3.5 rounded-lg border border-slate-800/80 flex justify-between items-center text-sm">
+                        <div class="space-y-0.5 pr-2">
+                            <span class="font-medium text-slate-200 block">Marketing</span>
+                            <span class="text-xs text-slate-500 font-mono">Never Revised</span>
+                        </div>
+                        <div>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono font-semibold border bg-rose-500/10 text-rose-400 border-rose-500/30 whitespace-nowrap">
+                                ☆☆☆☆☆ Review Needed
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
