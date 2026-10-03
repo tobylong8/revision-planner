@@ -1,6 +1,6 @@
 {
   "Maths": {
-    "Fractions, decimals and percentages": {
+    "Vectors": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -13,7 +13,7 @@
         ]
       }
     },
-    "Ratio": {
+    "Algebraic Fractions (Simplify)": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -26,7 +26,7 @@
         ]
       }
     },
-    "Standard form": {
+    "Surds Rationalise Denominator": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -39,7 +39,7 @@
         ]
       }
     },
-    "Drawing and using graphs": {
+    "Circle Theorems": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -52,7 +52,7 @@
         ]
       }
     },
-    "Evaluating indices": {
+    "Direct/Inverse Proportion": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -65,7 +65,7 @@
         ]
       }
     },
-    "Surface area": {
+    "Higher Index Laws": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -78,7 +78,7 @@
         ]
       }
     },
-    "Construction": {
+    "Histograms": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -91,7 +91,7 @@
         ]
       }
     },
-    "Recurring decimals": {
+    "Probability of Successive Events": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -104,7 +104,7 @@
         ]
       }
     },
-    "Pythagoras": {
+    "Upper and Lower Bounds": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -117,7 +117,7 @@
         ]
       }
     },
-    "Trigonometry": {
+    "Transformations of Graphs": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -130,7 +130,7 @@
         ]
       }
     },
-    "Expand, factorise and solve quadratics": {
+    "Area of a Triangle (Trig)": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -143,7 +143,7 @@
         ]
       }
     },
-    "Algebraic fractions": {
+    "Composite Functions": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -156,7 +156,7 @@
         ]
       }
     },
-    "Probability": {
+    "Recurring Decimals to Fractions": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -169,7 +169,7 @@
         ]
       }
     },
-    "Venn diagrams": {
+    "Sine Rule": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -182,7 +182,7 @@
         ]
       }
     },
-    "Proportion (direct and inverse)": {
+    "Product Rule for Counting": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -195,7 +195,7 @@
         ]
       }
     },
-    "Compound interest": {
+    "Inverse Functions": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -208,7 +208,7 @@
         ]
       }
     },
-    "Rationalising surds": {
+    "Box Plots": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -221,7 +221,7 @@
         ]
       }
     },
-    "Coordinate geometry (equation of a line)": {
+    "General Iterative Processes": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -234,7 +234,7 @@
         ]
       }
     },
-    "Turning points of quadratic graphs": {
+    "Geometric Proof": {
       "rating": 0,
       "last_revised": null,
       "plan": {
@@ -247,7 +247,59 @@
         ]
       }
     },
-    "Upper and lower bounds": {
+    "Quadratic Inequalities": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Speed-Time Graphs": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Similar Area/Volume": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Algebraic Fractions (Equations)": {
+      "rating": 0,
+      "last_revised": null,
+      "plan": {
+        "pomodoro_1": [
+          {"text": "Watch the topic summary video", "url": "https://drive.google.com/file/d/1UM9N_u_2hwcs0AKfUT3hz4LzvBpGfSDM/view?usp=sharing"},
+          {"text": "Paste the prompt into ChatGPT and do the summary quiz, reflecting on mistakes", "url": "https://chatgpt.com"}
+        ],
+        "pomodoro_2": [
+          {"text": "Complete exam questions and note mistakes", "url": "https://cognito.org/courses/gcse/biology-combined/aqa/higher/past-papers/by-topic"}
+        ]
+      }
+    },
+    "Algebraic Proof": {
       "rating": 0,
       "last_revised": null,
       "plan": {
