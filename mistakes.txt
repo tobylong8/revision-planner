@@ -57,3 +57,12 @@ Energy dissipation
 Work done - definition
 Efficiency - definition
 Renewable energy resources - definition
+
+P2:
+Definition of potential difference
+Resistance of metallic conductors and filament lamps as temperature increases
+Current–potential difference relationship for a fixed resistor
+Series circuit potential difference
+Parallel circuit potential difference
+Energy transferred, charge and potential difference
+Definition of resistance

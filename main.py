@@ -531,7 +531,7 @@ def generate_schedule():
 
     schedule_week_2 = {
         "Monday": "Biology",
-        "Tuesday": "English Language",
+        "Tuesday": "Physics", #TODO: Change to English Language
         "Wednesday": "Geography",
         "Thursday": "Maths",
         "Friday": "Computing",
