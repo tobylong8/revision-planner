@@ -28,6 +28,16 @@ Three white blood cell functions
 Vaccination
 Herd immunity
 
+B4:
+Photosynthesis and endothermic energy transfer
+Limiting factors in photosynthesis - definition and examples
+Uses of glucose in plants
+Anaerobic respiration in animals and yeast - equations
+Response to exercise and oxygen supply
+Oxygen debt definition
+Metabolism and liver functions
+Reduction of carbon dioxide during photosynthesis
+
 C1:
 Relative atomic mass formula
 Group 1 and 7 reactivity reasons
@@ -40,6 +50,13 @@ Alloys vs metals - the atoms are different sizes so there are no layers to slide
 Simple molecular substances: intermolecular forces and electrical conductivity
 Giant covalent structures: definition and properties
 Graphite vs diamond: structure, bonding and electrical conductivity
+
+C3:
+Mass, relative formula mass and amount of substance equations
+Percentage by mass of an element in a compound
+Theoretical yield and percentage yield
+Atom economy
+Converting between cm³ and dm³
 
 C5:
 Exothermic reaction definition

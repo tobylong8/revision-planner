@@ -331,18 +331,19 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
         prompt_text = None
         if phase == "pomodoro_1" and sub in ["Biology", "Chemistry", "Physics"]:
             prompt_text = (
-                f"I am studying GCSE {sub} for the AQA Combined Science specification.\n"
+                f"I am studying GCSE {sub} for the AQA Combined Science Higher Trilogy specification.\n"
                 f"I just watched a lesson on {top}.\n"
                 "Act as an expert GCSE examiner. Generate a strict active-recall summary quiz based ONLY on the core facts and definitions required for this specific topic.\n"
                 "Follow these formatting rules strictly:\n\n"
                 "Provide 15 short-answer questions covering the important subtopics.\n"
                 "The questions must target the exact technical keywords required to score full marks in an exam.\n"
                 "Do not use vague or open-ended questions.\n"
+                "No hints in the quiz.\n"
                 "Do not include content that is not required for AQA Combined Science Higher.\n\n"
                 "After the quiz, I will answer the questions. When I provide my answers, act as an expert GCSE examiner and:\n"
                 "Mark each answer strictly according to AQA-style marking points.\n"
                 "Give me an overall score.\n"
-                "Give me all the questions I got wrong and the correct answers.\n"
+                "Give me all the questions I got wrong and the correct answers together to compare.\n"
                 "Give me a short list of the subtopics I most need to revise in the exact of the example.\n"
                 "This is the example: B3:\n"
                 "Definition of pathogen\n"
@@ -531,7 +532,7 @@ def generate_schedule():
 
     schedule_week_2 = {
         "Monday": "Biology",
-        "Tuesday": "Physics", #TODO: Change to English Language
+        "Tuesday": "English Language",
         "Wednesday": "Geography",
         "Thursday": "Maths",
         "Friday": "Computing",
