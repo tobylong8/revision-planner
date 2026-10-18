@@ -1,8 +1,22 @@
 Maths
-    Area of parallelogram (55)
-    Area of a trapezium (56)
-    Probability from Venn diagrams (186)
+    Area of parallelogram
+    Area of a trapezium
+    Probability from Venn diagrams
     Equations of parallel lines
+    Finding turning point
+    Grade 9 q's with mean
+    Median value in table (n+1/2)
+    How to draw histograms (frequency/class width)
+    Estimating from a histogram
+    Formula of cylinder and curved surface area
+    Surface Area of Hemispheres
+    If a bracket is only in the denominators, you can't cancel it out
+    Values of tan, sin and cos at different angles
+    Grade 9 applications of geometry
+    √a x √b = √ab
+    Geometric sequence
+    Identifying transformation ("mapped to")
+    Translation means moving a shape by the numbers
 
  Biology
     B1:
