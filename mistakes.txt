@@ -106,3 +106,24 @@ Physics
     Parallel circuit potential difference
     Energy transferred, charge and potential difference
     Definition of resistance
+
+    P3:
+    Density - definition, equation and units
+    Solid, liquid and gas particle arrangements
+    Compressibility of gases
+    Density of irregular solids - displacement method
+    Internal energy - kinetic and potential energy
+    Increasing internal energy - heating and doing work
+    Energy changes during changes of state
+    Specific heat capacity - definition and equation
+    Specific latent heat - definition and equation
+    Latent heat of fusion vs vaporisation
+    Condensation - particle energy and arrangement
+
+    P4:
+    Isotopes
+    Relative size of atom and nucleus
+    Rutherford's alpha-particle scattering experiment
+    Bohr's atomic model
+    Radioactive decay
+    Alpha, beta and gamma radiation
