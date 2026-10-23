@@ -80,6 +80,18 @@ Chemistry
     Atom economy
     Converting between cm³ and dm³
 
+    C4:
+    Reactivity series
+    Reactions of metals with acids — ionic equations
+    Hydrogen gas test
+    Extraction of metals — carbon reduction
+    Electrolytes and mobile ions
+    Electrolysis — ion movement and electrode reactions
+    Aqueous electrolysis — product prediction
+    Hydroxide and hydrogen ions
+    Neutralisation
+    Strong vs weak acids
+
     C5:
     Exothermic reaction definition
     Endothermic reaction definition

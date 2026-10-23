@@ -337,6 +337,7 @@ def run_pomodoro_engine(selected_tasks, week_label, current_day):
                 "Follow these formatting rules strictly:\n\n"
                 "Provide 15 short-answer questions covering the important subtopics.\n"
                 "The questions must target the exact technical keywords required to score full marks in an exam.\n"
+                "Make it in the format where I can type in my answers.\n"
                 "Do not use vague or open-ended questions.\n"
                 "No hints in the quiz.\n"
                 "Do not include content that is not required for AQA Combined Science Higher.\n\n"
