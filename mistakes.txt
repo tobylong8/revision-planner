@@ -1,7 +1,3 @@
 Maths
     Grade 9 q's with mean - Application
-    Grade 9 applications of geometry - Application
-    Pythagoras - Application 
-    Probability
-    Ratio problems
-    Co-ordinate problems
+    Grade 9 applications of geometry - Application 
